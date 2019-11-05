@@ -1,0 +1,64 @@
+<head>
+    <title><%= title %></title>
+    <% include ../../elements/meta %>
+</head>
+
+<body class="bg-white">
+    <% include ../../elements/header %>
+
+    <% include ../../elements/breadcrumb %>
+
+    <!--================login_part Area =================-->
+    <section class="login_part section_padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <h2>Khách hàng mới</h2>
+                            <p>Trở thành thành viên để nhận thêm ưu đãi từ chúng tôi</p>
+                            <a href="/users/register" class="btn_3">Đăng kí</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3>Chào mừng trở lại! <br>
+                                Vui lòng đăng nhập</h3>
+                            <form class="row contact_form" action="/users/login/account" method="" novalidate="novalidate">
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="name" name="name" value=""
+                                        placeholder="Username">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                        placeholder="Mật khẩu">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="creat_account d-flex align-items-center">
+                                        <input type="checkbox" id="f-option" name="selector">
+                                        <label for="f-option">Nhớ tài khoản</label>
+                                    </div>
+                                    <button type="" value="submit" class="btn_3">
+                                        Đăng nhập
+                                    </button>
+                                    <a class="lost_pass" href="/users/forgot">Quên mật khẩu?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================login_part end =================-->
+
+    <% include ../../elements/subscribe %>
+
+    <% include ../../elements/footer %>
+
+    <% include ../../elements/scripts %>
+</body>
+
+</html>

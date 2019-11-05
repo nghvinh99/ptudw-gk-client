@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<title><%= title %></title>
+	<% include ../../elements/meta %>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+	<% include ../../elements/header %>
+
+	<% include ../../elements/breadcrumb %>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<!-- Start Sign In Form -->
+				<form action="/users/forgot/confirm" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+					<h2>Quên mật khẩu</h2>
+					<div class="form-group">
+						<label for="email" class="sr-only">Email</label>
+						<input type="email" class="form-control" id="email" placeholder="Email" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<p><a href="/users/login">Đăng nhập</a> hoặc <a href="/users/register">Đăng kí</a></p>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Gửi email" class="btn btn-primary">
+					</div>
+				</form>
+				<!-- END Sign In Form -->
+
+
+			</div>
+		</div>
+		<div class="row" style="padding-top: 60px; clear: both;">
+			<div class="col-md-12 text-center">
+				<p><small>&copy; All Rights Reserved. Designed by <a
+							href="https://freehtml5.co">FreeHTML5.co</a></small></p>
+			</div>
+		</div>
+	</div>
+
+	<% include ../../elements/subscribe %>
+
+	<% include ../../elements/footer %>
+
+	<% include forg-scripts %>
+
+	<script src="/javascripts/jquery.magnific-popup.js"></script>
+    <script src="/javascripts/slick.min.js"></script>
+    <script src="/javascripts/jquery.counterup.min.js"></script>
+    <script src="/javascripts/custom.js"></script>
+
+</body>
+
+</html>

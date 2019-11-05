@@ -1,0 +1,99 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!doctype html>
+<html>
+<head>
+	<title><%= title%></title>
+	
+	<% include ../../elements/meta %>
+
+	<link
+		href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+		rel='stylesheet' type='text/css'>
+	<link href="stylesheets/shipment.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+	<% include ../../elements/header %>
+
+	<% include ../../elements/breadcrumb %>
+
+	<div class="content">
+		<div class="content1">
+			<h2>Mã đơn hàng: 1234</h2>
+		</div>
+		<div class="content2">
+			<div class="content2-header1">
+				<p>Vận chuyển thông qua : <span>Bưu điện</span></p>
+			</div>
+			<div class="content2-header1">
+				<p>Trạng thái : <span>Kiểm tra & đóng gói</span></p>
+			</div>
+			<div class="content2-header1">
+				<p>Ngày dự kiến : <span>19/11/2019</span></p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="content3">
+			<div class="shipment">
+				<div class="confirm">
+					<div class="imgcircle">
+						<img src="images/confirm.png" alt="confirm order">
+					</div>
+					<span class="line"></span>
+					<p>Xác nhận đơn hàng</p>
+				</div>
+				<div class="process">
+					<div class="imgcircle">
+						<img src="images/process.png" alt="process order">
+					</div>
+					<span class="line"></span>
+					<p>Xuất kho</p>
+				</div>
+				<div class="quality">
+					<div class="imgcircle">
+						<img src="images/quality.png" alt="quality check">
+					</div>
+					<span class="line"></span>
+					<p>Kiểm tra & đóng gói</p>
+				</div>
+				<div class="dispatch">
+					<div class="imgcircle">
+						<img src="images/dispatch.png" alt="dispatch product">
+					</div>
+					<span class="line"></span>
+					<p>Vận chuyển</p>
+				</div>
+				<div class="delivery">
+					<div class="imgcircle">
+						<img src="images/delivery.png" alt="delivery">
+					</div>
+					<p>Giao hàng</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<% include ../../elements/feature %>
+
+    <% include ../../elements/subscribe %>
+
+	<div class="footer">
+		<p>Copyright © Shipment Track Widget. All Rights Reserved | Design by <a href="http://w3layouts.com"
+				target="_blank">W3layouts</a></p>
+	</div>
+
+	<% include ../../elements/footer %>
+
+	<% include ../../elements/scripts%>
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</body>
+
+</html>

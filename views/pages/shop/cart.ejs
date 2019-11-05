@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<title><%= title%></title>
+	<% include ../../elements/meta %>
+</head>
+
+<body class="bg-white">
+	<% include ../../elements/header %>
+
+	<% include ../../elements/breadcrumb %>
+
+	<!--================Cart Area =================-->
+	<section class="cart_area section_padding">
+		<div class="container">
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Sản phẩm</th>
+								<th scope="col">Giá</th>
+								<th scope="col">Số lượng</th>
+								<th scope="col">Thành tiền</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src="/images/arrivel/arrivel_1.png" alt="" />
+										</div>
+										<div class="media-body">
+											<p>Mũ lưỡi trai X</p>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>150.000 VNĐ</h5>
+								</td>
+								<td>
+									<div class="product_count">
+										<span class="input-number-decrement"> <i class="ti-minus"></i></span>
+										<input class="input-number" type="text" value="1" min="0" max="10">
+										<span class="input-number-increment"> <i class="ti-plus"></i></span>
+									</div>
+								</td>
+								<td>
+									<h5>150.000 VNĐ</h5>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src="/images/arrivel/arrivel_2.png" alt="" />
+										</div>
+										<div class="media-body">
+											<p>Áo khoác nữ</p>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>260.000 VNĐ</h5>
+								</td>
+								<td>
+									<div class="product_count">
+										<span class="input-number-decrement"> <i class="ti-minus"></i></span>
+										<input class="input-number" type="text" value="1" min="0" max="10">
+										<span class="input-number-increment"> <i class="ti-plus"></i></span>
+									</div>
+								</td>
+								<td>
+									<h5>260.000 VNĐ</h5>
+								</td>
+							</tr>
+							<tr class="bottom_button">
+								<td>
+									<a class="btn_1" href="/shop/cart">Cập nhật giỏ hàng</a>
+								</td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="cupon_text float-right">
+										<a class="btn_1" href="/shop/cart">Coupon</a>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>
+									<h5>Tổng</h5>
+								</td>
+								<td>
+									<h5>410.000 VNĐ</h5>
+								</td>
+							</tr>
+							<tr class="shipping_area">
+								<td></td>
+								<td></td>
+								<td>
+									<h5>Giao hàng</h5>
+								</td>
+								<td>
+									<div class="shipping_box">
+										<ul class="list">
+											<li>
+												Thông thường: 30.000 VNĐ
+												<input type="radio" name="shipping" aria-label="Radio button for following text input">
+											</li>
+											<li>
+												Miễn phí
+												<input type="radio" name="shipping" aria-label="Radio button for following text input">
+											</li>
+											<li>
+												Nhanh: 50.000
+												<input type="radio" name="shipping" aria-label="Radio button for following text input">
+											</li>
+										</ul>
+										<select class="shipping_select">
+											<option value="1">Việt Nam</option>
+											<option value="2">Nhật Bản</option>
+											<option value="4">Hàn Quốc</option>
+										</select>
+										<select class="shipping_select section_bg">
+											<option value="1">TP Hồ Chí Minh</option>
+											<option value="2">Hà Nội</option>
+											<option value="4">Đà Nẵng</option>
+										</select>
+										<input class="post_code" type="text" placeholder="Mã bưu chính" />
+										<a class="btn_1" href="/shop/cart">Cập nhật chi tiết</a>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="checkout_btn_inner float-right">
+						<a class="btn_1" href="/shop">Tiếp tục mua hàng</a>
+						<a class="btn_1 checkout_btn_1" href="/services/checkout">Thanh toán</a>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!--================End Cart Area =================-->
+
+	<% include ../../elements/footer %>
+
+	<% include ../../elements/scripts %>
+</body>
+
+</html>

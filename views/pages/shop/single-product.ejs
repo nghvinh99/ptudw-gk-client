@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <title><%= title %></title>
+  <% include ../../elements/meta %>
+</head>
+
+<body class="bg-white">
+  <% include ../../elements/header %>
+
+  <% include ../../elements/breadcrumb %>
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area section_padding">
+    <div class="container">
+      <div class="row s_product_inner">
+        <div class="col-lg-5">
+          <div class="product_slider_img">
+            <div id="vertical">
+              <div data-thumb="/images/product_details/prodect_details_1.png">
+                <img src="/images/product_details/prodect_details_1.png" />
+              </div>
+              <div data-thumb="/images/product_details/prodect_details_2.png">
+                <img src="/images/product_details/prodect_details_2.png" />
+              </div>
+              <div data-thumb="/images/product_details/prodect_details_3.png">
+                <img src="/images/product_details/prodect_details_3.png" />
+              </div>
+              <div data-thumb="/images/product_details/prodect_details_4.png">
+                <img src="/images/product_details/prodect_details_4.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1">
+          <div class="s_product_text">
+            <h3>Váy trắng</h3>
+            <h2>340.000 VNĐ</h2>
+            <ul class="list">
+              <li>
+                <a class="active" href="/shop">
+                  <span>Phân loại</span> : Thời trang nữ</a>
+              </li>
+              <li>
+                <a href="/shop/1"> <span>Tình trạng</span> : Còn hàng</a>
+              </li>
+            </ul>
+            <p>
+              Thích hợp cho các buổi tiệc sang trọng và tao nhã.
+            </p>
+            <div class="card_area">
+              <div class="product_count d-inline-block">
+                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
+                <input class="input-number" type="text" value="1" min="0" max="10">
+                <span class="number-increment"> <i class="ti-plus"></i></span>
+              </div>
+              <div class="add_to_cart">
+                <a href="/shop/1" class="btn_3">Thêm vào giỏ hàng</a>
+                <a href="/shop/1" class="like_us"> <i class="ti-heart"></i> </a>
+              </div>
+              <div class="social_icon">
+                <a href="/shop/1" class="fb"><i class="ti-facebook"></i></a>
+                <a href="/shop/1" class="tw"><i class="ti-twitter-alt"></i></a>
+                <a href="/shop/1" class="li"><i class="ti-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================End Single Product Area =================-->
+
+  <!--================Product Description Area =================-->
+  <section class="product_description_area">
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Mô tả</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Chi tiết</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false">Bình luận</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+            aria-selected="false">Đánh giá</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <p>
+            Thích hợp cho mấy bạn nữ xinh xắn bánh bèo.
+          </p>
+          <p>
+            Làm bằng chất liệu vải tằm thượng hạng, thoáng mát nhưng chắc chắn.
+          </p>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <h5>Rộng</h5>
+                  </td>
+                  <td>
+                    <h5>50 cm</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Dài</h5>
+                  </td>
+                  <td>
+                    <h5>150 cm</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Dày</h5>
+                  </td>
+                  <td>
+                    <h5>2mm</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Trọng lượng</h5>
+                  </td>
+                  <td>
+                    <h5>250 gam</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Kiểm định chất lượng</h5>
+                  </td>
+                  <td>
+                    <h5>Có</h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h5>Nhãn hiệu</h5>
+                  </td>
+                  <td>
+                    <h5>Chanel</h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="comment_list">
+                <div class="review_item">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-1.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Hải</h4>
+                      <h5>12 Th 2, 2019 lúc 05:56 pm</h5>
+                      <a class="reply_btn" href="/shop/1">Trả lời</a>
+                    </div>
+                  </div>
+                  <p>
+                    Mua về tặng vợ thôi <(￣︶￣)>
+                  </p>
+                </div>
+                <div class="review_item reply">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-2.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Chinh</h4>
+                      <h5>10 Th 2, 2019 lúc 03:38 pm</h5>
+                      <a class="reply_btn" href="/shop/1">Trả lời</a>
+                    </div>
+                  </div>
+                  <p>
+                    Ngon thế :v
+                  </p>
+                </div>
+                <div class="review_item">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-3.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Lâm</h4>
+                      <h5>10 Th 2, 2019 at 09:56 am</h5>
+                      <a class="reply_btn" href="/shop/1">Trả lời</a>
+                    </div>
+                  </div>
+                  <p>
+                    Giá hơi chát!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="review_box">
+                <h4>Đăng bình luận</h4>
+                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                  novalidate="novalidate">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Tên" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Địa chỉ email" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="number" name="number" placeholder="Số điện thoại" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="message" id="message" rows="1"
+                        placeholder="Bình luận"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <button type="" value="" class="btn_3">
+                      Đăng
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row total_rate">
+                <div class="col-6">
+                  <div class="box_total">
+                    <h5>Trung bình</h5>
+                    <h4>4.0</h4>
+                    <h6>(03 Đánh giá)</h6>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="rating_list">
+                    <h3>Dựa trên 3 lượt đánh giá</h3>
+                    <ul class="list">
+                      <li>
+                        <a href="#">5 sao
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> 01</a>
+                      </li>
+                      <li>
+                        <a href="#">4 sao
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> 01</a>
+                      </li>
+                      <li>
+                        <a href="#">3 sao
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> 01</a>
+                      </li>
+                      <li>
+                        <a href="#">2 sao
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> 01</a>
+                      </li>
+                      <li>
+                        <a href="#">1 sao
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i> 01</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="review_list">
+                <div class="review_item">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-1.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Quân</h4>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                  <p>
+                    Khá hài lòng
+                  </p>
+                </div>
+                <div class="review_item">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-2.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Nam</h4>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                  <p>
+                    Giao hàng chậm nhưng khá ổn
+                  </p>
+                </div>
+                <div class="review_item">
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="/images/product/single-product/review-3.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <h4>Bảo</h4>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                  <p>
+                    Hàng tốt, nhân viên nhiệt tình, 5 sao <3
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="review_box">
+                <h4>Đánh giá của bạn</h4>
+                <p>Đánh giá:</p>
+                <ul class="list">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-star"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-star"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-star"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-star"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-star"></i>
+                    </a>
+                  </li>
+                </ul>
+                <p>Tuyệt vời</p>
+                <form class="row contact_form" action="contact_process.php" method="" novalidate="novalidate">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="name" placeholder="Tên của bạn" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="email" class="form-control" name="email" placeholder="Địa chỉ email" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="number" placeholder="Số điện thoại" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <textarea class="form-control" name="message" rows="1" placeholder="Đánh giá"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right">
+                    <button type="" value="false" class="btn_3">
+                      Đăng
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End Product Description Area =================-->
+
+  <!-- product_list part start-->
+  <section class="product_list best_seller padding_bottom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="section_tittle text-center">
+            <h2>Bán chạy</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <div class="single_category_product">
+            <div class="single_category_img">
+              <img src="/images/category/category_2.png" alt="">
+              <div class="category_social_icon">
+                <ul>
+                  <li><a href="/shop/1"><i class="ti-heart"></i></a></li>
+                  <li><a href="/shop/1"><i class="ti-bag"></i></a></li>
+                </ul>
+              </div>
+              <div class="category_product_text">
+                <a href="single-product.html">
+                  <h5>Áo thun bóng đá</h5>
+                </a>
+                <p>100.000 VNĐ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="single_category_product">
+            <div class="single_category_img">
+              <img src="/images/category/category_3.png" alt="">
+              <div class="category_social_icon">
+                <ul>
+                  <li><a href="/shop/1"><i class="ti-heart"></i></a></li>
+                  <li><a href="/shop/1"><i class="ti-bag"></i></a></li>
+                </ul>
+              </div>
+              <div class="category_product_text">
+                <a href="single-product.html">
+                  <h5>Sơ mi sọc caro Hàn Quốc</h5>
+                </a>
+                <p>210.000 VNĐ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="single_category_product">
+            <div class="single_category_img">
+              <img src="/images/category/category_4.png" alt="">
+              <div class="category_social_icon">
+                <ul>
+                  <li><a href="/shop/1"><i class="ti-heart"></i></a></li>
+                  <li><a href="/shop/1"><i class="ti-bag"></i></a></li>
+                </ul>
+              </div>
+              <div class="category_product_text">
+                <a href="single-product.html">
+                  <h5>Váy đen</h5>
+                </a>
+                <p>350.000 VNĐ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <div class="single_category_product">
+            <div class="single_category_img">
+              <img src="/images/category/category_5.png" alt="">
+              <div class="category_social_icon">
+                <ul>
+                  <li><a href="/shop/1"><i class="ti-heart"></i></a></li>
+                  <li><a href="/shop/1"><i class="ti-bag"></i></a></li>
+                </ul>
+              </div>
+              <div class="category_product_text">
+                <a href="single-product.html">
+                  <h5>Áo thun tay dài</h5>
+                </a>
+                <p>150.000 VNĐ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- product_list part end-->
+
+  <% include ../../elements/feature %>
+
+  <% include ../../elements/subscribe %>
+
+  <% include ../../elements/footer %>
+
+  <% include ../../elements/scripts %>
+</body>
+
+</html>

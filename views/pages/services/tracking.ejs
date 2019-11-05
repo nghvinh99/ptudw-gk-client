@@ -1,0 +1,48 @@
+<head>
+    <title><%= title %></title>
+    <% include ../../elements/meta %>
+</head>
+
+<body class="bg-white">
+    <% include ../../elements/header %>
+
+    <% include ../../elements/breadcrumb %>
+
+    <!--================Tracking Box Area =================-->
+    <section class="tracking_box_area section_padding">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-12">
+                    <div class="tracking_box_inner">
+                        <p>
+                            Để theo dõi tiến độ đơn hàng, vui lòng nhập mã đơn hàng vào ô bên dưới và nhấn nút Theo dõi.
+                            Mã đơn hàng được in trong hóa đơn và email xác nhận đơn hàng của bạn.
+                        <form class="row tracking_form" action="/services/tracking/shipment" method="" novalidate="novalidate">
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" id="order" name="order" placeholder="Mã đơn hàng">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Địa chỉ email trong hóa đơn">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" value="submit" class="btn_3">Theo dõi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!--================End Tracking Box Area =================-->
+
+    <% include ../../elements/subscribe %>
+
+    <% include ../../elements/footer %>
+
+    <% include ../../elements/scripts %>
+</body>
+
+</html>
