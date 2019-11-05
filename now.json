@@ -13,7 +13,7 @@
    { "src": "/contact", "dest": "/" },
    { "src": "/about", "dest": "/" },
    { "src": "/services/tracking", "dest": "/" },
-   { "src": "/services/traking/shipment", "dest": "/" },
+   { "src": "/services/tracking/shipment", "dest": "/" },
    { "src": "/services/checkout", "dest": "/" },
    { "src": "/services/confirm", "dest": "/" },
    { "src": "/shop", "dest": "/" },
