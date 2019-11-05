@@ -9,9 +9,12 @@
     "routes": [
 	{ "src": "/", "dest": "./routes/index.js" },
     { "src": "/blogs", "dest": "/" },
-    { "src": "/blogs/1", "dest": "/" },
-   { "src": "/services", "dest": "/" },
+    { "src": "/blogs/*", "dest": "/" },
+   { "src": "/services/", "dest": "/" },
+   { "src": "/services/*", "dest": "/" },
    { "src": "/shop", "dest": "/" },
-   { "src": "/users", "dest": "/" }
+   { "src": "/shop/*", "dest": "/" },
+   { "src": "/users", "dest": "/" },
+   { "src": "/users/*", "dest": "/" }
     ]
 }
