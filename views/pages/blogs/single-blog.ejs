@@ -14,35 +14,16 @@
             <div class="col-lg-8 posts-list">
                <div class="single-post">
                   <div class="feature-img">
-                     <img class="img-fluid" src="/images/blog/single_blog_1.png" alt="">
+                     <img class="img-fluid" src="<%= blog.image %>" alt="">
                   </div>
                   <div class="blog_details">
-                     <h2>Gợi ý trang phục trẻ trung để đi chơi cùng bạn bè.</h2>
+                     <h2><%= blog.name %></h2>
                      <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="/blogs/1"><i class="far fa-user"></i> Thời trang, Phong cách</a></li>
-                        <li><a href="/blogs/1"><i class="far fa-comments"></i> 03 bình luận</a></li>
+                        <li><a href="/blogs/#"><i class="far fa-user"></i> <%= blog.tag %></a></li>
+                        <li><a href="/blogs/#"><i class="far fa-comments"></i> 03 bình luận</a></li>
                      </ul>
                      <p class="excert">
-                           Cuối tuần đến lại khiến nhiều cô nàng đau đầu suy nghĩ làm sao có cách ăn mặc đẹp và thoải mái nhất để đi chơi. 
-                           Nếu bạn chưa tìm ra style nào đẹp và tiện lợi nhất thì hãy tham khảo các gợi ý của chúng tôi dưới đây nhé!
-                     </p>
-                     <p>
-                           Các cách ăn mặc đơn giản mà đẹp này sẽ cho bạn những ngày vui chơi cuối tuần thoải mái mà không lo bị gò bó bởi trang phục.
-                           Chọn trang phục đi chơi từ chất liệu đến những kiểu dáng để cho mình sự thoải mái nhất, hoặc chọn trang phục đi chơi theo phong cách như vintage lãng mạn.
-                     </p>
-                     <div class="quote-wrapper">
-                        <div class="quotes">
-                           Cuộc đời quá ngắn ngủi để mặc trang phục nhàm chán
-                        </div>
-                     </div>
-                     <p>
-                        Không gì tiện lợi, thoáng mát hơn là những mẫu áo, váy freesize, tiện dụng vô cùng và vẫn giúp các cô nàng giữ được nét trẻ trung.
-                     </p>
-                     <p>
-                           Những kiểu áo váy freesize này không những cho bạn một sự thoải mái mà còn giúp che những khuyết điểm cơ thể như béo bụng hay quá gầy giúp bạn tự tin diện đồ đi chơi
-                     </p>
-                     <p>
-                           Bạn có thể mix quần jeans với áo phông Freesize pha ren tinh tế. Với bộ trang phục này bạn có thể mix cùng giày slip-on hay giày thể thao đều rất năng động
+                        <%= blog.content %>
                      </p>
                   </div>
                </div>
@@ -55,10 +36,10 @@
                         <!-- <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span> 06 Comments</p> -->
                      </div>
                      <ul class="social-icons">
-                        <li><a href="/blogs/1"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="/blogs/1"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="/blogs/1"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="/blogs/1"><i class="fab fa-behance"></i></a></li>
+                        <li><a href="/blogs/#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="/blogs/#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="/blogs/#"><i class="fab fa-dribbble"></i></a></li>
+                        <li><a href="/blogs/#"><i class="fab fa-behance"></i></a></li>
                      </ul>
                   </div>
                   <div class="navigation-area">
@@ -66,12 +47,12 @@
                         <div
                            class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                            <div class="thumb">
-                              <a href="/blogs/1">
+                              <a href="/blogs/#">
                                  <img class="img-fluid" src="/images/post/preview.png" alt="">
                               </a>
                            </div>
                            <div class="arrow">
-                              <a href="/blogs/1">
+                              <a href="/blogs/#">
                                  <span class="lnr text-white ti-arrow-left"></span>
                               </a>
                            </div>

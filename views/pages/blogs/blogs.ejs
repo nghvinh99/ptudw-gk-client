@@ -14,118 +14,26 @@
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
+                        
+                        <% blogs.rows.forEach(function(article){ %>
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="/images/blog/single_blog_1.png" alt="">
-                                <a href="/blogs/1" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Th 10</p>
-                                </a>
+                                <img class="card-img rounded-0" src="<%= article.image %>" alt="">
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="blogs/1">
-                                    <h2>Gợi ý trang phục trẻ trung để đi chơi cùng bạn bè</h2>
+                                <a class="d-inline-block" href="blogs/<%= article.id %>">
+                                    <h2><%= article.name %></h2>
                                 </a>
-                                <p>Hãy cùng tham khảo một vài gợi ý về trang phục đi bar, 
-                                    đi pub hay các câu lạc bộ đêm sau đây để trở thành một 
-                                    người trẻ thật trời trang và sành điệu nhé.</p>
+                                <p><%= article.description %></p>
                                 <ul class="blog-info-link">
-                                    <li><a href="/blogs/1"><i class="far fa-user"></i> Thời trang, phong cách</a></li>
-                                    <li><a href="/blogs/1"><i class="far fa-comments"></i> 03 bình luận</a></li>
+                                    <li><a href="/blogs/<%= article.id %>"><i class="far fa-user"></i> <%= article.tag %></a></li>
+                                    <li><a href="/blogs/<%= article.id %>"><i class="far fa-comments"></i> 03 bình luận</a></li>
                                 </ul>
                             </div>
                         </article>
 
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="/images/blog/single_blog_2.png" alt="">
-                                <a href="/blogs/1" class="blog_item_date">
-                                    <h3>30</h3>
-                                    <p>Th 09</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blogs/1">
-                                    <h2>Samsung Galaxy S7 màn hình mới siêu nét</h2>
-                                </a>
-                                <p>Sở hữu màn hình Super AMOLED với độ phân giải 2.560 x 1.440 pixel cho mật độ điểm ảnh 577 ppi. 
-                                    Màn hình trên Galaxy S7 cho thấy độ sáng vượt trội, tốt hơn 24% so với Galaxy S6.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="/blogs/1"><i class="far fa-user"></i> Công nghệ, Thiết kế</a></li>
-                                    <li><a href="/blogs/1"><i class="far fa-comments"></i> 04 bình luận</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="/images/blog/single_blog_3.png" alt="">
-                                <a href="/blogs/1" class="blog_item_date">
-                                    <h3>20</h3>
-                                    <p>Th 09</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blogs/1">
-                                    <h2>Điểm mặt 4 mẫu giày cao gót đẹp nhất hiện nay</h2>
-                                </a>
-                                <p>Giày cao gót nói chung luôn giúp chị em phụ nữ tôn dáng, lại vừa khẳng định được phong cách thời trang. 
-                                    Một cô nàng bước chân trên chiếc giày cao gót không những giúp thể hiện sự quý phái,
-                                     thanh lịch mà còn làm trang phục và hình dáng của cô ấy trở nên nổi bật.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="/blogs/1"><i class="far fa-user"></i> Thời trang, Phong cách</a></li>
-                                    <li><a href="/blogs/1"><i class="far fa-comments"></i> 08 bình luận</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="/images/blog/single_blog_4.png" alt="">
-                                <a href="/blogs/1" class="blog_item_date">
-                                    <h3>28</h3>
-                                    <p>Th 08</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blogs/1">
-                                    <h2>Top 5 các loại nước uống tốt cho sức khỏe</h2>
-                                </a>
-                                <p>Sự tồn tại của nước là điều kiện đầu tiên để xác định sự tồn tại của sự sông. Ở đâu có nước ở đó có sự tồn tại. 
-                                    Nước chiếm đến 70% cơ thể, là thành phần quan trọng nhất trong cơ thể con người và tham gia vào hầu hết tất cả các hoạt động diễn ra bên trong cơ thể.</p>
-                                <ul class="blog-info-link">
-                                    <li><a href="/blogs/1"><i class="far fa-user"></i> Sức khỏe, Lối sống</a></li>
-                                    <li><a href="/blogs/1"><i class="far fa-comments"></i> 04 bình luận</a></li>
-                                </ul>
-                            </div>
-                        </article>
-
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="/images/blog/single_blog_5.png" alt="">
-                                <a href="/blogs/1" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
-                                </a>
-                            </div>
-
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="blogs/1">
-                                    <h2>Ưu đãi sinh nhật giảm đến 20%, tháng 08 tha hồ mua sắm</h2>
-                                </a>
-                                <p>Từ ngày 01/08 đến 31/08, Winter ưu đãi khách hàng có sinh nhật trong tháng 08.
-                                    Khách hàng được giảm giá 20% khi mua sắm tại shop.
-                                </p>
-                                <ul class="blog-info-link">
-                                    <li><a href="/blogs/1"><i class="far fa-user"></i> Ưu đãi, Tin tức</a></li>
-                                    <li><a href="/blogs/1"><i class="far fa-comments"></i> 06 bình luận</a></li>
-                                </ul>
-                            </div>
-                        </article>
+                        <% }); %>
 
                         <nav class="blog-pagination justify-content-center d-flex">
                             <ul class="pagination">

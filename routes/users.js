@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('../config/passport');
 
 /* GET users listing. */
 router.get('/login', function (req, res, next) {
   res.render('pages/users/login', { title: 'Đăng nhập', breadcrumb: 'Trang chủ / Khách / Đăng nhập' });
 });
+
+router.post('/login', passport.authenticate('local', 
+  { successRedirect: '/',
+  failureRedirect: '/users/login',
+  failureFlash: false })
+);
 
 router.get('/login/account', function (req, res, next) {
   res.render('pages/users/account', { title: 'Tài khoản', breadcrumb: 'Trang chủ / Khách / Tài khoản' });

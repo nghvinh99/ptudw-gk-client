@@ -26,10 +26,10 @@
                         <div class="login_part_form_iner">
                             <h3>Chào mừng trở lại! <br>
                                 Vui lòng đăng nhập</h3>
-                            <form class="row contact_form" action="/users/login/account" method="" novalidate="novalidate">
+                            <form class="row contact_form" method="POST" novalidate="novalidate">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="name" name="name" value=""
-                                        placeholder="Username">
+                                    <input type="text" class="form-control" id="name" name="username" value=""
+                                        placeholder="Tài khoản" autocomplete="off">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="password" name="password" value=""
@@ -40,7 +40,7 @@
                                         <input type="checkbox" id="f-option" name="selector">
                                         <label for="f-option">Nhớ tài khoản</label>
                                     </div>
-                                    <button type="" value="submit" class="btn_3">
+                                    <button type="submit" value="Log In" class="btn_3">
                                         Đăng nhập
                                     </button>
                                     <a class="lost_pass" href="/users/forgot">Quên mật khẩu?</a>
