@@ -8,12 +8,14 @@ module.exports = {
       {
         username: 'ti123',
         password: 'ti123',
+        block: false,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         username: 'teo234',
         password: 'teo234',
+        block: false,
         createdAt: new Date(),
         updatedAt: new Date()
       }

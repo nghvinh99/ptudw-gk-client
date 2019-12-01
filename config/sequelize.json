@@ -5,10 +5,7 @@
     "database": "DB_demo",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false,
-    "define": {
-      "freezeTableName": true
-    }
+    "operatorsAliases": false
   },
   "test": {
     "username": "postgres",
@@ -16,10 +13,7 @@
     "database": "DB_demo",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false,
-    "define": {
-      "freezeTableName": true
-    }
+    "operatorsAliases": false
   },
   "production": {
     "username": "postgres",
@@ -27,9 +21,6 @@
     "database": "DB_demo",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false,
-    "define": {
-      "freezeTableName": true
-    }
+    "operatorsAliases": false
   }
 }

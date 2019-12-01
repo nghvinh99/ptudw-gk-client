@@ -21,20 +21,19 @@
                             <li class="nav-item dropdown">
                                 <% include service-drop %>
                             </li>
-
                             <li class="nav-item dropdown">
                                 <% include blog-drop %>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
                     <div class="hearer_icon d-flex">
+                        <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                         <div class="dropdown">
-                            <a class="dropdown-toggle" href="/shop/cart" id="navbarDropdown3" role="button"
-                                data-toggle="" aria-haspopup="true" aria-expanded="true">
+                            <a class="dropdown-toggle" href="/shop/cart" id="shoppingCart" role="button" data-toggle=""
+                                aria-haspopup="true" aria-expanded="true">
                                 <i class="ti-bag"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,8 +41,25 @@
                                 </div>
                             </div>
                         </div>
-                        <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
-                        <a id="login" href="/users/login"><i class="ti-user"></i></a>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="/users/login" id="login" role="button" data-toggle=""
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="ti-user"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-item">
+                                    <a href="/users/login" style="color:white;" onmouseover="this.style.color='black';"
+                                        onmouseout="this.style.color='white';">
+                                        Đăng nhập</a>
+                                </div>
+                                <div class="dropdown-item">
+                                    <a href="/users/register" style="color:white"
+                                        onmouseover="this.style.color='black';" onmouseout="this.style.color='white';">
+                                        Đăng kí</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a id="logout" href="users/logout"><i></i> Đăng xuất</a>
                     </div>
                 </nav>
             </div>

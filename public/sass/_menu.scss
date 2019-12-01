@@ -164,7 +164,7 @@
 		.dropdown-item {
 			font-size: 14px;
 			padding: 8px 20px !important;
-			color: #fff !important;
+			color: #fff;
 			background-color: $btn_bg;
 			text-transform: capitalize;
 		}
@@ -215,7 +215,7 @@
 	.dropdown {
 		.dropdown-menu {
 			transform: scale(1, 0);
-			display: none;
+			display: block;
 			margin-top: 10px;
 		}
 
@@ -223,12 +223,12 @@
 			.dropdown-menu {
 				transform: scale(1);
 				display: block;
-				color: $btn_bg;
+				color: $btn_bg !important;
 			}
 		}
 
 		.dropdown-item:hover {
-			color: $btn_bg !important;
+			color: black !important;
 		}
 	}
 

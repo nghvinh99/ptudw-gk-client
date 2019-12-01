@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('../config/passport');
+var { User } = require('../models/');
 
 /* GET users listing. */
 router.get('/login', function (req, res, next) {
@@ -13,11 +14,17 @@ router.post('/login', passport.authenticate('local',
   failureFlash: false })
 );
 
-router.get('/login/account', function (req, res, next) {
+router.get('/logout', function (req, res, next) {
+  req.logout();
+  req.session.destroy();
+  res.redirect('/');
+});
+
+router.get('/account', function (req, res, next) {
   res.render('pages/users/account', { title: 'Tài khoản', breadcrumb: 'Trang chủ / Khách / Tài khoản' });
 });
 
-router.get('/login/account/confirm', function (req, res, next) {
+router.get('/account/confirm', function (req, res, next) {
   res.render('pages/users/acc-confirm', { title: 'Xác nhận', breadcrumb: 'Trang chủ / Khách / Tài khoản / Xác nhận' });
 });
 
@@ -33,6 +40,19 @@ router.get('/forgot/confirm', function (req, res, next) {
 router.get('/register', function (req, res, next) {
   res.render('pages/users/register', { title: 'Đăng kí', breadcrumb: 'Trang chủ / Khách / Register' });
 });
+
+router.post('/register', function (req, res, next) {
+  const usr = req.body.username;
+  const pwd = req.body.password;
+  
+  User.create({
+    username: usr,
+    password: pwd,
+    block: false
+  }).then(user => res.redirect('/users/register/confirm'))
+    .catch(err => res.redirect('/users/register'));
+});
+
 
 router.get('/register/confirm', function (req, res, next) {
   res.render('pages/users/confirmation', { title: 'Xác nhận', breadcrumb: 'Trang chủ / Khách / Confirmation' });
