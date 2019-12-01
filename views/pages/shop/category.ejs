@@ -21,9 +21,9 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                    <% category.rows.forEach(function(type) { %>
+                                    <% category.forEach((category) => {%>
                                     <li>
-                                        <a href="/shop/category/<%= type.id %>"><%= type.ten %></a>
+                                        <a href="/shop/category/<%= category.id %>"><%= category.name %></a>
                                     </li>
                                     <% }); %>
                                 </ul>
@@ -137,12 +137,12 @@
                             </div>
                         </div>
 
-                        <% sanpham.rows.forEach(function(sp){ %>
+                        <% product.forEach((product) => {%>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_category_product">
                                 <div class="single_category_img">
-                                    <a href="/shop/<%= sp.id %>">
-                                        <img src="<%= sp.hinh %>" alt="">
+                                    <a href="/shop/<%= product.id %>">
+                                        <img src="<%= product.images[0] %>" alt="">
                                     </a>
                                     <div class="category_social_icon">
                                         <ul>
@@ -151,10 +151,10 @@
                                         </ul>
                                     </div>
                                     <div class="category_product_text">
-                                        <a href="shop/<%= sp.id %>">
-                                            <h5><%= sp.ten %></h5>
+                                        <a href="shop/<%=  product.id %>">
+                                            <h5><%=  product.name %></h5>
                                         </a>
-                                        <p><%= sp.gia %> VNĐ</p>
+                                        <p><%=  product.price %> VNĐ</p>
                                     </div>
                                 </div>
                             </div>

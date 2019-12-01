@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('../config/database');
 
 router.get('/', function(req, res, next) {
   pool.query('SELECT * FROM BLOG ORDER BY id ASC', function (err, result){

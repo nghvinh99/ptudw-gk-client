@@ -1,29 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var pool = require('../config/database');
+var { Product } = require('../models/');
+var { Group } = require('../models/');
 
 router.get('/', function(req, res, next) {
-  let category;
-  pool.query('SELECT * FROM PHANLOAI ORDER BY id ASC', function (err, result) {
-    if (err) {
-      res.end();
-      return console.log('error running query', err);
-    } else {
-      category = result;
-    }
-  })
-  pool.query('SELECT * FROM SANPHAM ORDER BY id ASC', function (err, result) {
-    if (err) {
-      res.end();
-      return console.log('error running query', err);
-    } else {
-      res.render('pages/shop/category', 
-      { title: 'Cửa hàng' , 
-      range: 'Tất cả',
-      breadcrumb: 'Trang chủ / Cửa hàng',
-      sanpham: result,
-      category: category});
-    }
+  Group.findAll({raw: true})
+  .then( result => category = result);
+  Product.findAll({raw: true})
+  .then( result => {
+    res.render('pages/shop/category', 
+    { title: 'Cửa hàng' , 
+    range: 'Tất cả',
+    breadcrumb: 'Trang chủ / Cửa hàng',
+    product: result,
+    category: category});
   })
 });
 
@@ -33,44 +23,38 @@ router.get('/cart', function (req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   const id = req.params.id;
-  pool.query("SELECT * FROM SANPHAM WHERE id = '"+id+"'", function (err, result){
-    if (err) {
-      res.end();
-      return console.log('Error running query');
-    } else {
-      res.render('pages/shop/single-product', 
-      { title: 'Chi tiết' , 
-      breadcrumb: 'Trang chủ / Cửa hàng / ' + result.rows[0].ten_sanpham,
-      product: result.rows[0]});
-    }
+  Product.findOne(
+    {
+      where: {id: id}, 
+      raw: true
+    })
+  .then( result => {
+    res.render('pages/shop/single-product', 
+    { title: 'Chi tiết' , 
+    breadcrumb: 'Trang chủ / Cửa hàng / ' + result.name,
+    product: result});
   })
 });
 
 router.get('/category/:id', function (req, res, next) {
   const id = req.params.id;
-  let category;
-  pool.query('SELECT * FROM PHANLOAI_SANPHAM', function (err, result) {
-    if (err) {
-      res.end();
-      return console.log('error running query', err);
-    } else {
-      category = result;
-    }
-  })
-  pool.query("SELECT * FROM SANPHAM WHERE phanloai_sanpham = (select phanloai from phanloai_sanpham where id = '"+id+"')", 
-  function (err, result) {
-    if (err) {
-      res.end();
-      return console.log('Error running query',err);
-    } else {
+  Group.findOne({where: {id: id}})
+  .then( result => Chosen = result.name);
+  Group.findAll({raw: true})
+  .then( result => category = result)
+  Product.findAll(
+    {
+      where: {groupId: id}, 
+      raw: true
+    })
+    .then(result => {
       res.render('pages/shop/category', 
       { title: 'Cửa hàng', 
-      range: result.rows[0].phanloai_sanpham,
-      breadcrumb: 'Trang chủ / Cửa hàng / '+ result.rows[0].phanloai_sanpham,
-      sanpham: result,
+      range: Chosen,
+      breadcrumb: 'Trang chủ / Cửa hàng / '+ Chosen,
+      product: result,
       category: category});
-    }
-  })
+    })
 });
 
 module.exports = router;
