@@ -13,9 +13,11 @@ router.get('/tracking/shipment', function (req, res, next) {
 router.get('/checkout',
   authenticationCheck(),
   function (req, res, next) {
-    res.render('pages/services/checkout', 
-    { title: 'Thanh toán', 
-    breadcrumb: 'Trang chủ / Tiện ích / Thanh toán' });
+    res.render('pages/services/checkout',
+      {
+        title: 'Thanh toán',
+        breadcrumb: 'Trang chủ / Tiện ích / Thanh toán'
+      });
   });
 
 router.get('/confirm', function (req, res, next) {

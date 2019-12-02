@@ -5,13 +5,24 @@ const { User } = require('../models/');
 
 /* GET users listing. */
 router.get('/login', function (req, res, next) {
-  res.render('pages/users/login', { title: 'Đăng nhập', breadcrumb: 'Trang chủ / Khách / Đăng nhập' });
+  if (req.isAuthenticated()) {
+    res.redirect('/');
+  }
+  const errors = req.flash().error || [];
+  res.render('pages/users/login',
+    {
+      title: 'Đăng nhập',
+      breadcrumb: 'Trang chủ / Khách / Đăng nhập',
+      errors
+    });
 });
 
-router.post('/login', passport.authenticate('local', 
-  { successRedirect: '/',
-  failureRedirect: '/users/login',
-  failureFlash: false })
+router.post('/login', passport.authenticate('local',
+  {
+    successRedirect: '/',
+    failureRedirect: '/users/login',
+    failureFlash: true
+  })
 );
 
 router.get('/logout', function (req, res, next) {
@@ -42,7 +53,16 @@ router.get('/forgot/confirm', function (req, res, next) {
 
 
 router.get('/register', function (req, res, next) {
-  res.render('pages/users/register', { title: 'Đăng kí', breadcrumb: 'Trang chủ / Khách / Register' });
+  if (req.isAuthenticated()) {
+    res.redirect('/');
+  }
+  const errors = req.flash().error || [];
+  res.render('pages/users/register',
+    {
+      title: 'Đăng kí',
+      breadcrumb: 'Trang chủ / Khách / Register',
+      errors
+    });
 });
 
 router.post('/register', function (req, res, next) {
@@ -51,6 +71,7 @@ router.post('/register', function (req, res, next) {
   user = new User();
   user.register(usr, pwd, (err, user) => {
     if (err) {
+      req.flash('error', 'Tài khoản đã tồn tại. Hãy đặt tên khác')
       res.redirect('/users/register');
     } else {
       req.login(user, function(err) {

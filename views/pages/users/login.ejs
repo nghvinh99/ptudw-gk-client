@@ -26,6 +26,11 @@
                         <div class="login_part_form_iner">
                             <h3>Chào mừng trở lại! <br>
                                 Vui lòng đăng nhập</h3>
+                            <% for (let i=0;i<errors.length;i++) {%>
+                            <div class="alert alert-danger" role="alert">
+                                <%= errors[i] %>
+                            </div>
+                            <% } %>
                             <form class="row contact_form" method="POST">
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" class="form-control" id="name" name="username" value=""

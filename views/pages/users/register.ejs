@@ -18,6 +18,11 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Đăng kí tài khoản</h2>
+                    <% for (let i=0;i<errors.length;i++) {%>
+                    <div class="alert alert-danger" role="alert">
+                        <%= errors[i] %>
+                    </div>
+                    <% } %>
                     <form method="POST">
                         <div class="row row-space">
                                 <div class="col-6">

@@ -6,6 +6,7 @@ var logger = require('morgan');
 var BodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('./config/passport');
+var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -40,6 +41,8 @@ app.use(function(req, res, next) {
     res.locals.nametag = req.user.username;
   next();
 });
+
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
