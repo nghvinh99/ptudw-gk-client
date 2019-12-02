@@ -4,18 +4,21 @@ const { User } = require('../models/');
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
-    User.findOne({where: {username: username}})
-    .then( user => {
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
+    User.findOne({ where: { username: username } })
+      .then(user => {
+        if (!user) {
+          return done(null, false);
+        }
+        user.validPassword(password, (err, res) => {
+          if (!res) {
+            return done(null, false);
+          } else {
+            return done(null, user);
+          }
+        })
+      })
+  })
+);
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -31,5 +34,12 @@ passport.deserializeUser((id, done) => {
     }
   })
 });
+
+authenticationCheck = function() {
+  return (req, res, next) => {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/users/login');
+  }
+}
 
 module.exports = passport;

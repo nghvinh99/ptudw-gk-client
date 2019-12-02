@@ -4,23 +4,20 @@
     "password": "data123",
     "database": "DB_demo",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "data123",
     "database": "DB_demo",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": "data123",
     "database": "DB_demo",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "operatorsAliases": false
+    "dialect": "postgres"
   }
 }

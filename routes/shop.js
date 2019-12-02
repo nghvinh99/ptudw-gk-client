@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var { Product } = require('../models/');
-var { Group } = require('../models/');
+const { Product } = require('../models/');
+const { Group } = require('../models/');
 
 router.get('/', function(req, res, next) {
   Group.findAll({raw: true})

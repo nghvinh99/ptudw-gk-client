@@ -28,11 +28,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(BodyParser.urlencoded({extended: true}));
 app.use(session(
   { secret: "sanshoukuin",
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: false,
   }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(function(req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  if (req.isAuthenticated())
+    res.locals.nametag = req.user.username;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

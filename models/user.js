@@ -1,4 +1,7 @@
 'use strict';
+const bcrypt = require('bcryptjs');
+const saltRound = 10;
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: DataTypes.STRING,
@@ -8,10 +11,22 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true
   });
 
-  User.prototype.validPassword = function(password) {
-    console.log("CORRECT PWD: " + this.password);
-    return this.password == password;
-  }
+  User.prototype.register = function(username, password, redirect) {
+    bcrypt.hash(password, saltRound, (err, hash) => {
+      User.create({
+        username: username,
+        password: hash,
+        block: false
+      }).then (user => redirect(null, user))
+      .catch (err => redirect(err, null))
+    });
+  };
+
+  User.prototype.validPassword = function(password, done) {
+    bcrypt.compare(password, this.password, (err, res) => {
+      return done(err, res);
+    });
+  };
 
   User.associate = function (models) {
   };
