@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var BodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('./config/passport');
 var flash = require('connect-flash');
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(BodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(session(
   { secret: "sanshoukuin",
     resave: false,
