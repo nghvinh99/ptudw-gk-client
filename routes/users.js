@@ -58,13 +58,11 @@ router.get('/register', function (req, res, next) {
     res.redirect('/');
   }
   const errors = req.flash().error || [];
-  console.log(valid);
   res.render('pages/users/register',
     {
       title: 'Đăng kí',
       breadcrumb: 'Trang chủ / Khách / Register',
-      errors,
-      valid
+      errors
     });
 });
 
@@ -74,9 +72,11 @@ router.post('/register', [
   check('password', 'Mật khẩu không được trống').not().isEmpty(),
   check('password', 'Mật khẩu phải có độ dài tối thiểu là 6').isLength({ min: 6 })
 ], function (req, res, next) {
-  valid = validationResult(req);
-  if (!valid.isEmpty()) {
-    valid = valid.array();
+  if (!validationResult(req).isEmpty()) {
+    const valid = validationResult(req).array();
+    for (let i=0; i<valid.length;i++) {
+      req.flash('error',valid[i].msg);
+    }
     res.redirect('/users/register');
   } else {
     const usr = req.body.username;

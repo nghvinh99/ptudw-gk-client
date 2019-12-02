@@ -41,7 +41,6 @@ app.use(function(req, res, next) {
     res.locals.nametag = req.user.username;
   next();
 });
-
 app.use(flash());
 
 app.use('/', indexRouter);
