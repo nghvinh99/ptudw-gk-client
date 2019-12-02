@@ -1,0 +1,6 @@
+PORT = 3000
+DB_USER = 'postgres'
+DB_PASSWORD = 'data123'
+DB_NAME = 'DB_demo'
+DB_PORT = 5432
+DB_HOST = 'localhost'
