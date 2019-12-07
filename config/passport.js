@@ -7,11 +7,11 @@ passport.use(new LocalStrategy({ passReqToCallback : true },
     User.findOne({ where: { username: username } })
       .then(user => {
         if (!user) {
-          return done(null, false, req.flash('error', 'Tài khoản không tồn tại'));
+          return done(null, false, req.flash('error', 'Tài khoản hoặc mật khẩu không hợp lệ'));
         }
         user.validPassword(password, (err, res) => {
           if (!res) {
-            return done(null, false, req.flash('error', 'Sai mật khẩu'));
+            return done(null, false, req.flash('error', 'Tài khoản hoặc mật khẩu không hợp lệ'));
           } else {
             return done(null, user);
           }
@@ -34,12 +34,5 @@ passport.deserializeUser((id, done) => {
     }
   })
 });
-
-authenticationCheck = function() {
-  return (req, res, next) => {
-    if (req.isAuthenticated()) return next();
-    res.redirect('/users/login');
-  }
-}
 
 module.exports = passport;

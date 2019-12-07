@@ -9,10 +9,9 @@ var passport = require('./config/passport');
 var flash = require('connect-flash');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var blogsRouter = require('./routes/blogs');
+var usersRouter = require('./routes/user');
 var shopRouter = require('./routes/shop');
-var servRouter = require('./routes/services');
+var servRouter = require('./routes/service');
 
 var app = express();
 
@@ -45,7 +44,6 @@ app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/blogs', blogsRouter);
 app.use('/shop', shopRouter);
 app.use('/services', servRouter);
 

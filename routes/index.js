@@ -1,16 +1,11 @@
 var express = require('express');
 var router = express.Router();
+const index = require('../controllers/index');
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Winter' });
-});
+router.get('/', index.getHomePage);
 
-router.get('/contact', function(req, res, next) {
-  res.render('pages/home/contact', { title: 'Liên hệ' , breadcrumb: 'Trang chủ / Liên hệ'});
-});
+router.get('/contact', index.getContact);
 
-router.get('/about', function(req, res, next) {
-  res.render('pages/home/about', { title: 'Thông tin' , breadcrumb: 'Trang chủ / Thông tin'});
-});
+router.get('/about', index.getAbout);
 
 module.exports = router;
