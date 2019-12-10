@@ -8,11 +8,11 @@ const Op = Sequelize.Op;
 const shopController = {};
 
 shopController.getAllProduct = async (req, res, next) => {
-    let perPage = req.query.perPage || 6;
-    let page = req.query.page || 1;
+    const perPage = req.query.perPage || 6;
+    const page = req.query.page || 1;
 
-    let order = req.query.order || 'ASC';
-    let orderBy = req.query.orderBy || 'id';
+    const order = req.query.order || 'ASC';
+    const orderBy = req.query.orderBy || 'id';
 
     const filter = {
         group: req.query.group || {[Op.not]: null},
