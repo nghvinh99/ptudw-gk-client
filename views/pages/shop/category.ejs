@@ -120,17 +120,17 @@
                                 </div>
                                 <div class="product_top_bar_iner product_bar_item d-flex">
                                     <div class="product_bar_single">
-                                        <select class="wide">
+                                        <select id="select-order" class="wide">
                                             <option data-display="Sắp xếp">Sắp xếp</option>
                                             <option value="1">Giá tăng dần</option>
                                             <option value="2">Giá giảm dần</option>
                                         </select>
                                     </div>
                                     <div class="product_bar_single">
-                                        <select>
-                                            <option data-display="Hiện 12">Hiện 12</option>
-                                            <option value="1">Hiện 24</option>
-                                            <option value="2">Hiện 36</option>
+                                        <select id="select-per-page">
+                                            <option value="6" data-display="Hiện 6">Hiện  6</option>
+                                            <option value="12">Hiện 12</option>
+                                            <option value="24">Hiện 24</option>
                                         </select>
                                     </div>
                                 </div>
@@ -161,6 +161,7 @@
                         </div>
                         <% }); %>
 
+                        <% include ../../elements/pagination %>
                     </div>
                 </div>
             </div>

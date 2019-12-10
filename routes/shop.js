@@ -10,4 +10,6 @@ router.get('/:id', shop.getOneProduct);
 
 router.get('/category/:id', shop.getCategory);
 
+//router.get('/page?brand=:brand&color=:color', shop)
+
 module.exports = router;

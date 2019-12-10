@@ -14,6 +14,12 @@ module.exports = {
     "database": "dfq7n642cgfjnk",
     "host": "ec2-174-129-255-69.compute-1.amazonaws.com",
     "dialect": "postgres",
+    "dialectOptions": {
+      "encrypt": true,
+      "ssl" : {
+        "rejectUnauthorized": false
+      }
+    },
     "port": 5432
   },
   "production": {
