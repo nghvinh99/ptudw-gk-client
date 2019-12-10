@@ -2,6 +2,8 @@ const { Product } = require('../models/');
 const { Group } = require('../models/');
 const { Type } = require('../models/');
 const { Brand } = require('../models/');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 const shopController = {};
 
@@ -12,11 +14,22 @@ shopController.getAllProduct = async (req, res, next) => {
     let order = req.query.order || 'ASC';
     let orderBy = req.query.orderBy || 'id';
 
+    const filter = {
+        group: req.query.group || {[Op.not]: null},
+        type: req.query.type || {[Op.not]: null},
+        brand: req.query.brand || {[Op.not]: null}
+    };
+
     group = await Group.findAll({ raw: true});
     type = await Type.findAll({ raw: true});
     brand = await Brand.findAll({ raw: true});
     Product.count({raw: true}).then(result => numOfRows = result);
     Product.findAll({ 
+        where: {
+            groupId: filter.group,
+            typeId: filter.type,
+            brandId: filter.brand
+        },
         raw: true,
         limit: perPage,
         offset: (page-1)*perPage,
