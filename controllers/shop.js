@@ -16,10 +16,12 @@ shopController.getAllProduct = (req, res, next) => {
     Product.findAll({ 
         raw: true,
         limit: perPage,
-        offset: (page-1)*perPage
+        offset: (page-1)*perPage,
+        order:[
+            [orderBy, order]
+        ],
     })  .then(result => {
             let link = req.url;
-            console.log(link);
             res.render('pages/shop/category',
                 {
                     title: "Cửa hàng",
