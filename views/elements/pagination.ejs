@@ -5,7 +5,7 @@
             <% if (current == 1) { %>
             <li class="disabled page-item"><a class="page-link" aria-label="First">First</a></li>
             <% } else { %>
-            <li class="page-item"><a href="/shop/" class="page-link" aria-label="First">First</a></li>
+            <li class="page-item"><a href="/shop?<%=helper.setParam(url, 'page', 1, 1)%>" class="page-link" aria-label="First">First</a></li>
             <% } %>
             <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
             <% if (i !== 1) { %>
@@ -15,7 +15,7 @@
             <% if (i == current) { %>
             <li class="active page-item"><a class="page-link"><%= i %></a></li>
             <% } else { %>
-            <li class="page-item"><a class="page-link" href="/shop?page=<%= i %>"><%= i %></a></li>
+            <li class="page-item"><a class="page-link" href="/shop?<%=helper.setParam(url, 'page', i, 0)%>"><%= i %></a></li>
             <% } %>
             <% if (i == Number(current) + 4 && i < pages) { %>
             <li class="disabled page-item"><a class="page-link">...</a></li>
@@ -24,7 +24,7 @@
             <% if (current == pages) { %>
             <li class="disabled page-item"><a class="page-link">Last</a></li>
             <% } else { %>
-            <li class="page-item"><a class="page-link" href="/shop?page=<%= pages %>">Last</a></li>
+            <li class="page-item"><a class="page-link" href="/shop?<%=helper.setParam(url, 'page', pages, 0)%>">Last</a></li>
             <% } %>
         </ul>
     </nav>

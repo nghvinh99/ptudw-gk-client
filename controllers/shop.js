@@ -3,6 +3,7 @@ const { Group } = require('../models/');
 const { Type } = require('../models/');
 const { Brand } = require('../models/');
 const Sequelize = require('sequelize');
+const helper = require('../helper');
 const Op = Sequelize.Op;
 
 const shopController = {};
@@ -37,7 +38,7 @@ shopController.getAllProduct = async (req, res, next) => {
             [orderBy, order]
         ],
     })  .then(result => {
-            let link = req.url;
+            let link = req.protocol + '://' + req.get('host') + req.originalUrl;
             res.render('pages/shop/category',
                 {
                     title: "Cửa hàng",
@@ -47,6 +48,7 @@ shopController.getAllProduct = async (req, res, next) => {
                     group, type, brand,
                     currentLink: link, 
                     pages: Math.ceil(numOfRows / perPage),
+                    helper: helper,
                     current: page,
                 });
         })
