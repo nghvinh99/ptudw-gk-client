@@ -24,7 +24,14 @@ shopController.getAllProduct = async (req, res, next) => {
     group = await Group.findAll({ raw: true});
     type = await Type.findAll({ raw: true});
     brand = await Brand.findAll({ raw: true});
-    Product.count({raw: true}).then(result => numOfRows = result);
+    Product.count({
+        raw: true,
+        where: {
+            groupId: filter.group,
+            typeId: filter.type,
+            brandId: filter.brand
+        },
+    }).then(result => numOfRows = result);
     Product.findAll({ 
         where: {
             groupId: filter.group,

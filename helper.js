@@ -19,4 +19,13 @@ obj.setTowParams = (url, param1, value1, param2, value2, isPage1) => {
     return searchParams.toString();
 }
 
+obj.getChecked = (url, name, value) => {
+    let searchParams = new URLSearchParams(url.search);
+    if(searchParams.get(name) === value.toString()){
+        return "checked";
+    } else{
+        return "";
+    }
+}
+
 module.exports = obj;

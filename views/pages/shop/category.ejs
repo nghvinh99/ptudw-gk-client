@@ -27,12 +27,12 @@
                                 <ul class="list">
                                     <p>Nhóm</p>
                                     <li>
-                                        <input name="group" id="allGroup" value="" type="radio" aria-label="Radio button for following text input" checked>
+                                        <input name="group" id="allGroup" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'group', "")%>>
                                         <label for="allGroup" >Tất cả</label>
                                     </li>
                                     <% group.forEach((group) => { %>
                                     <li>
-                                        <input name="group" id="group_<%= group.id %>" value="<%= group.id %>" type="radio" aria-label="Radio button for following text input">
+                                        <input name="group" id="group_<%= group.id %>" value="<%= group.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'group', group.id)%>>
                                         <label for="group_<%= group.id %>" ><%= group.name %></label>
                                     </li>
                                     <% }); %>
@@ -40,12 +40,12 @@
                                 <ul class="list">
                                     <p>Loại</p>
                                     <li>
-                                        <input name="type" id="allType" value="" type="radio" aria-label="Radio button for following text input" checked>
+                                        <input name="type" id="allType" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'type', "")%>>
                                         <label for="allType" >Tất cả</label>
                                     </li>
                                     <% type.forEach((type) => { %>
                                     <li>
-                                        <input name="type" id="type_<%= type.id %>" value="<%= type.id %>" type="radio" aria-label="Radio button for following text input">
+                                        <input name="type" id="type_<%= type.id %>" value="<%= type.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'type', type.id)%>>
                                         <label for="type_<%= type.id %>"><%= type.name %></label>
                                     </li>
                                     <% }); %>
@@ -53,12 +53,12 @@
                                 <ul class="list">
                                     <p>Hãng sản xuất</p>
                                     <li>
-                                        <input name="brand" id="allBrand" value="" type="radio" aria-label="Radio button for following text input" checked>
+                                        <input name="brand" id="allBrand" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'brand', "")%>>
                                         <label for="allBrand" >Tất cả</label>
                                     </li>
                                     <% brand.forEach((brand) => { %>
                                     <li>
-                                        <input name="brand" id="brand_<%= brand.id %>" value="<%= brand.id %>" type="radio" aria-label="Radio button for following text input">
+                                        <input name="brand" id="brand_<%= brand.id %>" value="<%= brand.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'brand', brand.id)%>>
                                         <label for="brand_<%= brand.id %>"><%= brand.name %></label>
                                     </li>
                                     <% }); %>
