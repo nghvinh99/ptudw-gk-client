@@ -87,4 +87,11 @@ shopController.getOneProduct = (req, res, next) => {
         })
 }
 
+shopController.addCart = async (req, res, next) => {
+    const id = req.params.id;
+    console.log("OK, you chose an item, id = " + id);
+    const product = await Product.findOne({where: {id : id}});
+    res.send(JSON.stringify(product));
+}
+
 module.exports = shopController;

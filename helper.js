@@ -22,6 +22,7 @@ obj.setTowParams = (url, param1, value1, param2, value2, isPage1) => {
 obj.getChecked = (url, name, value) => {
     let searchParams = new URLSearchParams(url.search);
     if(searchParams.get(name) === value.toString()){
+        console.log(searchParams.get(name));
         return "checked";
     } else{
         return "";

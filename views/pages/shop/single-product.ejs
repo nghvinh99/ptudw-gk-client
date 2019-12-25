@@ -18,18 +18,11 @@
         <div class="col-lg-5">
           <div class="product_slider_img">
             <div id="vertical">
-              <div data-thumb="<%= product.images[0] %>">
-                <img src="<%= product.images[0] %>" />
+              <% product.images.forEach((images) => { %>
+              <div data-thumb="<%= images %>">
+                <img src="<%= images %>" />
               </div>
-              <div data-thumb="<%= product.images[0] %>">
-                <img src="<%= product.images[0] %>" />
-              </div>
-              <div data-thumb="<%= product.images[0] %>">
-                <img src="<%= product.images[0] %>" />
-              </div>
-              <div data-thumb="<%= product.images[0] %>">
-                <img src="<%= product.images[0] %>" />
-              </div>
+              <% });  %>
             </div>
           </div>
         </div>

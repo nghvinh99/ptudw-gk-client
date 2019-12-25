@@ -1,4 +1,3 @@
-const dotenv = require('dotenv').config();
 module.exports = {
   "development": {
     "username": "postgres",
@@ -9,25 +8,19 @@ module.exports = {
     "port": 5432
   },
   "test": {
-    "username": "bvfytdwxrpbqee",
-    "password": "83402e20c3511b33b5ba022ce629d9367400638569a368596b2c193cd86c3628",
-    "database": "dfq7n642cgfjnk",
-    "host": "ec2-174-129-255-69.compute-1.amazonaws.com",
+    "username": "postgres",
+    "password": "data123",
+    "database": "DB_WinterShop",
+    "host": "localhost",
     "dialect": "postgres",
-    "dialectOptions": {
-      "encrypt": true,
-      "ssl" : {
-        "rejectUnauthorized": false
-      }
-    },
     "port": 5432
   },
   "production": {
-    "username": "bvfytdwxrpbqee",
-    "password": "83402e20c3511b33b5ba022ce629d9367400638569a368596b2c193cd86c3628",
-    "database": "dfq7n642cgfjnk",
-    "host": "ec2-174-129-255-69.compute-1.amazonaws.com",
-    "dialect": "postgres",
-    "port": 5432
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASSWORD,
+    "database": process.env.DB_NAME,
+    "host": process.env.DB_HOST,
+    "dialect": process.env.DB_DIALECT,
+    "port": process.env.DB_PORT
   }
 };
