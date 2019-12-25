@@ -62,6 +62,9 @@ shopController.getAllProduct = async (req, res, next) => {
 }
 
 shopController.getCart = (req, res, next) => {
+    setTimeout(() =>{
+        console.log(req);
+    }, 3000); 
     res.render('pages/shop/cart',
         {
             title: 'Giỏ hàng',
