@@ -44,18 +44,18 @@
             </p>
             <div class="card_area">
               <div class="product_count d-inline-block">
-                <span class="inumber-decrement"> <i class="ti-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
-                <span class="number-increment"> <i class="ti-plus"></i></span>
+                <span class="inumber-decrement" style="cursor:pointer"> <i class="ti-minus"></i></span>
+                <input id="quantity" readonly class="input-number" type="text" value="1" min="1">
+                <span class="number-increment" style="cursor:pointer"> <i class="ti-plus"></i></span>
               </div>
               <div class="add_to_cart">
-                <a href="#" class="btn_3">Thêm vào giỏ hàng</a>
-                <a href="/shop/<%= product.id_sanpham %>" class="like_us"> <i class="ti-heart"></i> </a>
+                <a id="addCart" value="<%= product.id %>" class="btn_3" style="cursor:pointer" >Thêm vào giỏ hàng</a>
+                <!-- <a href="/shop/<%= product.id_sanpham %>" class="like_us"> <i class="ti-heart"></i> </a> -->
               </div>
               <div class="social_icon">
-                <a href="#" class="fb"><i class="ti-facebook"></i></a>
-                <a href="#" class="tw"><i class="ti-twitter-alt"></i></a>
-                <a href="#" class="li"><i class="ti-linkedin"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="fb"><i class="ti-facebook"></i></a>
+                <a href="https://www.twitter.com/" target="_blank" class="tw"><i class="ti-twitter-alt"></i></a>
+                <a href="https://www.linkedin.com/" class="li"><i class="ti-linkedin"></i></a>
               </div>
             </div>
           </div>

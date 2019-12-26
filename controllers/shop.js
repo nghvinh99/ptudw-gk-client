@@ -62,14 +62,18 @@ shopController.getAllProduct = async (req, res, next) => {
 }
 
 shopController.getCart = (req, res, next) => {
-    setTimeout(() =>{
-        console.log(req);
-    }, 3000); 
+    // const cart = JSON.parse(req.flash('cart'));
+    // console.log(cart);
     res.render('pages/shop/cart',
         {
             title: 'Giỏ hàng',
             breadcrumb: 'Trang chủ / Cửa hàng / Giỏ hàng'
         });
+}
+
+shopController.postCart = (req, res, next) => {
+    const list = req.body.itemList;
+    res.end();
 }
 
 shopController.getOneProduct = (req, res, next) => {
@@ -92,7 +96,6 @@ shopController.getOneProduct = (req, res, next) => {
 
 shopController.addCart = async (req, res, next) => {
     const id = req.params.id;
-    console.log("OK, you chose an item, id = " + id);
     const product = await Product.findOne({where: {id : id}});
     res.send(JSON.stringify(product));
 }
