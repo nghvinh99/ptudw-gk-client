@@ -7,7 +7,7 @@ router.get('/tracking', service.tracking);
 
 router.get('/tracking/shipment', service.shipment);
 
-router.get('/checkout', service.authenticationCheck, service.checkout);
+router.get('/checkout', service.checkout);//service.authenticationCheck, 
 
 router.get('/confirm', service.checkoutConfirm);
 

@@ -62,8 +62,6 @@ shopController.getAllProduct = async (req, res, next) => {
 }
 
 shopController.getCart = (req, res, next) => {
-    // const cart = JSON.parse(req.flash('cart'));
-    // console.log(cart);
     res.render('pages/shop/cart',
         {
             title: 'Giỏ hàng',
@@ -73,6 +71,7 @@ shopController.getCart = (req, res, next) => {
 
 shopController.postCart = (req, res, next) => {
     const list = req.body.itemList;
+    console.log(JSON.parse(list));
     res.end();
 }
 
