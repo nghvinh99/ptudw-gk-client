@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   const Order = sequelize.define('Order', {
     user: DataTypes.INTEGER,
@@ -6,8 +7,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     freezeTableName: true
   });
+
+  Order.add = (user, order) => {
+    Order.create({
+      user: user.id,
+      order: order.id
+    })
+  }
+
   Order.associate = function(models) {
-    // associations can be defined here
   };
   return Order;
 };
