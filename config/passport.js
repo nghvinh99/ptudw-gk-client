@@ -9,6 +9,9 @@ passport.use(new LocalStrategy({ passReqToCallback : true },
         if (!user) {
           return done(null, false, req.flash('error', 'Tài khoản hoặc mật khẩu không hợp lệ'));
         }
+        if (user.block) {
+          return done(null,false, req.flash('error','Tài khoản này đã bị khóa. Liên hệ quản trị viên để biết chi tiết'));
+        }
         user.validPassword(password, (err, res) => {
           if (!res) {
             return done(null, false, req.flash('error', 'Tài khoản hoặc mật khẩu không hợp lệ'));
