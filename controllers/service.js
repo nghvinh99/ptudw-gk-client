@@ -1,4 +1,6 @@
 const serviceController = {};
+const { OrderDetail } = require('../models/');
+const { Order } = require('../models/');
 
 serviceController.tracking = (req, res, next) => {
     res.render('pages/services/tracking',
@@ -27,6 +29,24 @@ serviceController.checkout = (req, res, next) => {
             title: 'Thanh toán',
             breadcrumb: 'Trang chủ / Tiện ích / Thanh toán'
         });
+}
+
+serviceController.createOrder = (req, res, next) => {
+    const cart = req.body.itemList;
+    const info = {
+        name : req.body.name,
+        phone : req.body.phone,
+        email : req.body.email,
+        address : req.body.address,
+        note: req.body.note,
+        COD: req.body.payment
+    }
+    console.log(info);
+    OrderDetail.add(cart, info, (order) => {
+        const user = req.user;
+        Order.add(user, order);
+    });
+    res.end();
 }
 
 serviceController.checkoutConfirm = (req, res, next) => {

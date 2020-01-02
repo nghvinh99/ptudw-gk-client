@@ -9,6 +9,8 @@ router.get('/tracking/shipment', service.shipment);
 
 router.get('/checkout', service.authenticationCheck, service.checkout);
 
+router.post('/checkout', service.createOrder);
+
 router.get('/confirm', service.checkoutConfirm);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const { check, validationResult } = require('express-validator');
 const passport = require('../config/passport');
 const { User } = require('../models/');
+const { UserDetail } = require('../models/');
 
 const userController = {};
 
@@ -61,7 +62,6 @@ userController.validateRegister = [
 ]
 
 userController.postRegister = (req, res, next) => {
-
     if (!validationResult(req).isEmpty()) {
         const valid = validationResult(req).array();
         for (let i = 0; i < valid.length; i++) {
@@ -69,14 +69,23 @@ userController.postRegister = (req, res, next) => {
         }
         res.redirect('/users/register');
     } else {
-        const usr = req.body.username;
-        const pwd = req.body.password;
-        user = new User();
-        user.register(usr, pwd, (err, user) => {
+        const info = {
+            usr : req.body.username,
+            pwd : req.body.password,
+            name : req.body.name,
+            DoB : req.body.birthday,
+            gender : req.body.gender,
+            email : req.body.email,
+            phone : req.body.phone,
+        }
+        User.register(info, (err, user) => {
             if (err) {
                 req.flash('error', 'Tài khoản đã tồn tại. Hãy đặt tên khác')
                 res.redirect('/users/register');
             } else {
+                UserDetail.newProfile(info, (err, profile) => {
+                    User.addProfile(user, profile);
+                });
                 req.login(user, function (err) {
                     res.redirect('/users/register/confirm');
                 })

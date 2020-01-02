@@ -14,71 +14,30 @@
 	<!--================Checkout Area =================-->
 	<section class="checkout_area section_padding">
 		<div class="container">			
-			<div class="cupon_area">
-				<div class="check_title">
-					<h2>
-						Có coupon giảm giá?
-					</h2>
-				</div>
-				<input type="text" placeholder="Nhập mã coupon" />
-				<a class="tp_btn" href="/services/checkout">Áp dụng coupon</a>
-			</div>
 			<div class="billing_details">
 				<div class="row">
 					<div class="col-lg-8">
 						<h3>Chi tiết hóa đơn</h3>
 						<form class="row contact_form" action="/shop/cart" method="post" novalidate="novalidate">
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="first" name="name" />
-								<span class="placeholder" data-placeholder="Tên"></span>
-							</div>
-							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="last" name="name" />
-								<span class="placeholder" data-placeholder="Họ"></span>
-							</div>
-							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="company" name="company"
-									placeholder="Công ty" />
+							<div class="col-md-12 form-group p_star">
+								<input type="text" class="form-control" id="name" name="name" 
+								placeholder="Tên"/>
 							</div>
 							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="number" name="number" />
-								<span class="placeholder" data-placeholder="Số điện thoại"></span>
+								<input type="text" class="form-control" id="phone" name="phone" 
+								placeholder="Số điện thoại"/>
 							</div>
 							<div class="col-md-6 form-group p_star">
-								<input type="text" class="form-control" id="email" name="compemailany" />
-								<span class="placeholder" data-placeholder="Địa chỉ email"></span>
+								<input type="text" class="form-control" id="email" name="email" 
+								placeholder="Email"/>
 							</div>
 							<div class="col-md-12 form-group p_star">
-								<select class="country_select">
-									<option value="1">Việt Nam</option>
-									<option value="2">Nhật Bản</option>
-									<option value="4">Hàn Quốc</option>
-								</select>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="add1" name="add1" />
-								<span class="placeholder" data-placeholder="Địa chỉ"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<input type="text" class="form-control" id="city" name="city" />
-								<span class="placeholder" data-placeholder="Quận/huyện/thành phố"></span>
-							</div>
-							<div class="col-md-12 form-group p_star">
-								<select class="country_select">
-									<option value="1">Quận</option>
-								</select>
-							</div>
-							<div class="col-md-12 form-group">
-								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector" />
-									<label for="f-option2">Tạo tài khoản?</label>
-								</div>
+								<input type="text" class="form-control" id="address" name="address" 
+								placeholder="Địa chỉ"/>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
 									<h3>Chi tiết giao hàng</h3>
-									<input type="checkbox" id="f-option3" name="selector" />
-									<label for="f-option3">Giao hàng đến địa chỉ khác</label>
 								</div>
 								<textarea class="form-control" name="message" id="message" rows="1"
 									placeholder="Ghi chú đơn hàng"></textarea>
@@ -116,7 +75,7 @@
 							</ul>
 							<div class="payment_item">
 								<div class="radion_btn">
-									<input type="radio" id="f-option5" name="selector" />
+									<input type="radio" id="f-option5" name="selector" checked/>
 									<label for="f-option5">COD</label>
 									<div class="check"></div>
 								</div>
@@ -134,11 +93,6 @@
 								<p>
 									Xin gửi thông tin xác nhận về shop trực tiếp hoặc thông qua liên hệ
 								</p>
-							</div>
-							<div class="creat_account">
-								<input type="checkbox" id="f-option4" name="selector" />
-								<label for="f-option4">Tôi đồng ý với </label>
-								<a href="#">điều khoản & thỏa thuận*</a>
 							</div>
 							<a id="checkout" class="btn_3" href="/services/confirm">Xác nhận</a>
 						</div>

@@ -12,16 +12,25 @@ module.exports = (sequelize, DataTypes) => {
     freezeTableName: true
   });
 
-  User.prototype.register = function(username, password, redirect) {
-    bcrypt.hash(password, saltRound, (err, hash) => {
+  User.register = async function (data, redirect) {
+    bcrypt.hash(data.pwd, saltRound, function(err, hash) {
       User.create({
-        username: username,
+        username: data.usr,
         password: hash,
-        block: false
-      }).then (user => redirect(null, user))
-      .catch (err => redirect(err, null))
+        block: false,
+        userdetail: null,
+      }).then(user => redirect(null, user))
+        .catch(err => redirect(err, null))
     });
   };
+
+  User.addProfile = async function (user, profile) {
+    User.update({
+      userdetail: profile.id
+    }, {
+      where: { id: user.id }
+    })
+  }
 
   User.prototype.validPassword = function(password, done) {
     bcrypt.compare(password, this.password, (err, res) => {

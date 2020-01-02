@@ -205,11 +205,21 @@ $(function() {
 });
 
 function postCart(itemList, done) {
+    let COD = true;
+    if(!document.getElementById('f-option5').checked) {
+        COD = false;
+    }
     $.ajax({
-        url: '/shop/cart',
+        url: '/services/checkout',
         type: 'POST',
         data: {
-            itemList: itemList
+            itemList: itemList,
+            name: $('#name').val(),
+            phone: $('#phone').val(),
+            email: $('#email').val(),
+            address: $('#address').val(),
+            note: $('#message').val(),
+            payment: COD
         },
         success: function() {
             localStorage.removeItem('cart');

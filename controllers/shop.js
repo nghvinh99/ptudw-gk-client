@@ -2,8 +2,6 @@ const { Product } = require('../models/');
 const { Group } = require('../models/');
 const { Type } = require('../models/');
 const { Brand } = require('../models/');
-const { OrderDetail } = require('../models/');
-const { Order } = require('../models/');
 const Sequelize = require('sequelize');
 const helper = require('../helper');
 const Op = Sequelize.Op;
@@ -69,15 +67,6 @@ shopController.getCart = (req, res, next) => {
             title: 'Giỏ hàng',
             breadcrumb: 'Trang chủ / Cửa hàng / Giỏ hàng'
         });
-}
-
-shopController.postCart = (req, res, next) => {
-    const cart = req.body.itemList;
-    OrderDetail.add(cart, (order) => {
-        const user = req.user;
-        Order.add(user, order);
-    });
-    res.end();
 }
 
 shopController.getOneProduct = (req, res, next) => {
