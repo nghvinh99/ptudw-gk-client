@@ -1,5 +1,4 @@
 const serviceController = {};
-const { OrderDetail } = require('../models/');
 const { Order } = require('../models/');
 
 serviceController.tracking = (req, res, next) => {
@@ -34,6 +33,7 @@ serviceController.checkout = (req, res, next) => {
 serviceController.createOrder = (req, res, next) => {
     const cart = req.body.itemList;
     const info = {
+        user: req.user,
         name : req.body.name,
         phone : req.body.phone,
         email : req.body.email,
@@ -41,12 +41,11 @@ serviceController.createOrder = (req, res, next) => {
         note: req.body.note,
         COD: req.body.payment
     }
-    console.log(info);
-    OrderDetail.add(cart, info, (order) => {
-        const user = req.user;
-        Order.add(user, order);
+    Order.add(cart, info, (err, order) => {
+        console.log(err);
+        console.log(order);
+        res.end();
     });
-    res.end();
 }
 
 serviceController.checkoutConfirm = (req, res, next) => {
