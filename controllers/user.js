@@ -78,14 +78,12 @@ userController.postRegister = (req, res, next) => {
             email : req.body.email,
             phone : req.body.phone,
         }
+        console.log(info);
         User.register(info, (err, user) => {
             if (err) {
                 req.flash('error', 'Tài khoản đã tồn tại. Hãy đặt tên khác')
                 res.redirect('/users/register');
             } else {
-                UserDetail.newProfile(info, (err, profile) => {
-                    User.addProfile(user, profile);
-                });
                 req.login(user, function (err) {
                     res.redirect('/users/register/confirm');
                 })

@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     block: DataTypes.BOOLEAN,
-    userdetail: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    DoB: DataTypes.DATE,
+    email: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    gender: DataTypes.BOOLEAN,
+    avatar: DataTypes.STRING
   }, {
     freezeTableName: true
   });
@@ -18,19 +23,15 @@ module.exports = (sequelize, DataTypes) => {
         username: data.usr,
         password: hash,
         block: false,
-        userdetail: null,
+        name: data.name,
+        DoB: data.DoB,
+        email: data.email,
+        phone: data.phone,
+        gender: data.gender,
       }).then(user => redirect(null, user))
         .catch(err => redirect(err, null))
     });
   };
-
-  User.addProfile = async function (user, profile) {
-    User.update({
-      userdetail: profile.id
-    }, {
-      where: { id: user.id }
-    })
-  }
 
   User.prototype.validPassword = function(password, done) {
     bcrypt.compare(password, this.password, (err, res) => {
