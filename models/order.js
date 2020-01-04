@@ -22,9 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     cart.forEach((item) => {
       sumMoney += parseInt(item.price) * parseInt(item.quantity);
     })
-    const userId = info.user.id;
     Order.create({
-      user: userId,
+      user: info.user,
       detail: detail,
       state: 'Pending',
       name: info.name,

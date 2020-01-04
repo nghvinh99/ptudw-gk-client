@@ -57,7 +57,7 @@ $(function() { //update on cart item adding
                         alert('Đã thêm '+ quantity + ' ' + duplicate.name +' vào giỏ hàng');
                     } else alert('Đã vượt quá số lượng tối đa trong kho hàng: ' + duplicate.stock);
                 } else {
-                    if (quantity < data.quantity) {
+                    if (quantity <= data.quantity) {
                         itemList.push({
                             id: data.id,
                             name: data.name,
@@ -223,6 +223,8 @@ function postCart(itemList, done) {
         },
         success: function() {
             localStorage.removeItem('cart');
+            window.location.href='/services/confirm';
+
         },
     });
 }
