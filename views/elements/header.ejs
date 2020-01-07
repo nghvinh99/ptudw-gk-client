@@ -27,11 +27,10 @@
                         </ul>
                     </div>
                     <div class="hearer_icon d-flex">
-                        <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                         <div class="dropdown">
-                            <div class="dropdown cart" data-count="">                        
-                                <a class="dropdown-toggle" href="/shop/cart" id="shoppingCart" role="button" data-toggle="" aria-haspopup="true"
-                                    aria-expanded="true">
+                            <div class="dropdown cart" data-count="">
+                                <a class="dropdown-toggle" href="/shop/cart" id="shoppingCart" role="button"
+                                    data-toggle="" aria-haspopup="true" aria-expanded="true">
                                     <i id="shopping-cart" data-count="0" class="ti-bag"></i>
                                 </a>
                                 <div class="dropdown-menu" style="margin-left:-100%;" aria-labelledby="navbarDropdown">
@@ -42,43 +41,34 @@
                             </div>
                         </div>
                         <% if (isAuthenticated) { %>
-                            <div><a><i></i></a>Xin chào <a href="/users/account"><b style="color: blue"
-                                onmouseover="this.style.color='black';"
-                            onmouseout="this.style.color='blue';"><%= nametag %></b></a></div>
-                            <a id="logout" href="users/logout" style="color: black" onmouseover="this.style.color='blue';"
-                            onmouseout="this.style.color='black';"><i></i>Đăng xuất</a>       
+                        <div><a><i></i></a>Xin chào <a href="/users/account"><b style="color: blue"
+                                    onmouseover="this.style.color='black';"
+                                    onmouseout="this.style.color='blue';"><%= nametag %></b></a></div>
+                        <a id="logout" href="users/logout" style="color: black" onmouseover="this.style.color='blue';"
+                            onmouseout="this.style.color='black';"><i></i>Đăng xuất</a>
                         <% } else { %>
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" href="/users/login" id="login" role="button" data-toggle=""
-                                    aria-haspopup="true" aria-expanded="true">
-                                    <i class="ti-user"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <div class="dropdown-item">
-                                        <a href="/users/login" style="color:white;" onmouseover="this.style.color='black';"
-                                            onmouseout="this.style.color='white';">
-                                            Đăng nhập</a>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <a href="/users/register" style="color:white"
-                                            onmouseover="this.style.color='black';" onmouseout="this.style.color='white';">
-                                            Đăng kí</a>
-                                    </div>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="/users/login" id="login" role="button" data-toggle=""
+                                aria-haspopup="true" aria-expanded="true">
+                                <i class="ti-user"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-item">
+                                    <a href="/users/login" style="color:white;" onmouseover="this.style.color='black';"
+                                        onmouseout="this.style.color='white';">
+                                        Đăng nhập</a>
+                                </div>
+                                <div class="dropdown-item">
+                                    <a href="/users/register" style="color:white"
+                                        onmouseover="this.style.color='black';" onmouseout="this.style.color='white';">
+                                        Đăng kí</a>
                                 </div>
                             </div>
+                        </div>
                         <% } %>
                     </div>
                 </nav>
             </div>
-        </div>
-    </div>
-    <div class="search_input" id="search_input_box">
-        <div class="container ">
-            <form method="GET" class="d-flex justify-content-between search-inner">
-                <input type="text" name="search" class="form-control" id="search_input" placeholder="Tìm kiếm sản phẩm tại đây">
-                <button type="submit" value="Submit" class="btn"></button>
-                <span class="ti-close" id="close_search" title="Close Search"></span>
-            </form>
         </div>
     </div>
 </header>

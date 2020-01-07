@@ -32,7 +32,9 @@ userController.authenticationCheck = (req, res, next) => {
 
 userController.logout = (req, res, next) => {
     req.logout();
-    res.redirect('/users/login');
+    //req.session.destroy(function (err) {
+    res.redirect('/users/login'); //Inside a callback… bulletproof!
+    //});
 }
 
 userController.getPersonalInfo = (req, res, next) => {

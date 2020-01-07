@@ -18,7 +18,8 @@ shopController.getAllProduct = async (req, res, next) => {
     const filter = {
         group: req.query.group || {[Op.not]: null},
         type: req.query.type || {[Op.not]: null},
-        brand: req.query.brand || {[Op.not]: null}
+        brand: req.query.brand || {[Op.not]: null},
+        search: req.query.search || ""
     };
 
     group = await Group.findAll({ raw: true});
@@ -29,14 +30,16 @@ shopController.getAllProduct = async (req, res, next) => {
         where: {
             groupId: filter.group,
             typeId: filter.type,
-            brandId: filter.brand
+            brandId: filter.brand,
+            name: {[Op.substring]: filter.search}
         },
     }).then(result => numOfRows = result);
     Product.findAll({ 
         where: {
             groupId: filter.group,
             typeId: filter.type,
-            brandId: filter.brand
+            brandId: filter.brand,
+            name: {[Op.iLike]: '%'+filter.search+'%'}
         },
         raw: true,
         limit: perPage,
@@ -56,6 +59,7 @@ shopController.getAllProduct = async (req, res, next) => {
                     currentLink: link, 
                     pages: Math.ceil(numOfRows / perPage),
                     helper: helper,
+                    query: req.query,
                     current: page,
                 });
         })

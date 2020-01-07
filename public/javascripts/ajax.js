@@ -118,14 +118,14 @@ $(function () {
                     "<tr id='cart-items-" + item.id + "'>\<td>\<div class='media'>\<div class='d-flex'>\
                     <a href='/shop/"+ item.id + "'><img src='" + item.image + "' alt='' />\</div>\
                     <div class='media-body'>\<p>"+ item.name + "</p></a>\</div>\</div>\
-                    </td>\<td>\<h5>"+ item.price + " VNĐ</h5>\</td>\<td>\<div class='product_count'>\
+                    </td>\<td>\<h5>"+ formatMoney(item.price) + " VNĐ</h5>\</td>\<td>\<div class='product_count'>\
                     <span value='"+ item.id + "' class='input-number-decrement'> <i class='ti-minus'></i></span>\
                     <input readonly id='quantity-"+ item.id + "' class='input-number' type='text' value='" + item.quantity + "' min='0'>\
                     <span value='"+ item.id + "' class='input-number-increment'> <i class='ti-plus'></i></span>\
-                    </div>\</td>\<td>\<h5 id='itemSum-"+ item.id + "'>" + itemSum + " VNĐ</h5>\</td>\<td>\
+                    </div>\</td>\<td>\<h5 id='itemSum-"+ item.id + "'>" + formatMoney(itemSum) + " VNĐ</h5>\</td>\<td>\
                     <a href='javascript:removeItem("+ item.id + ");'>&#x2716; Xóa</a>\</td>\</tr>"
                 );
-                $('#sumMoney').html(sumMoney + " VNĐ");
+                $('#sumMoney').html(formatMoney(sumMoney) + " VNĐ");
             })
         }
     })
@@ -141,12 +141,12 @@ $(function () {
                 item.quantity -= 1;
                 $('#quantity-' + item.id).attr("value", item.quantity);
                 localStorage.setItem('cart', JSON.stringify(itemList));
-                let itemSum = parseInt($('#itemSum-' + item.id).html());
+                let itemSum = parseInt(formatReMoney($('#itemSum-' + item.id).html()));
                 itemSum -= parseInt(item.price);
-                $('#itemSum-' + item.id).html(itemSum + "VNĐ");
-                let sumMoney = parseInt($('#sumMoney').html());
+                $('#itemSum-' + item.id).html(formatMoney(itemSum) + " VNĐ");
+                let sumMoney = parseInt(formatReMoney($('#sumMoney').html()));
                 sumMoney -= parseInt(item.price);
-                $('#sumMoney').html(sumMoney + " VNĐ");
+                $('#sumMoney').html(formatMoney(sumMoney) + " VNĐ");
                 $('#itemCount-' + item.id).html(item.quantity);
             } else alert('Số lượng đặt hàng tối thiểu là 1');
         })
@@ -165,7 +165,7 @@ $(function () {
                 localStorage.setItem('cart', JSON.stringify(itemList));
                 let itemSum = parseInt(formatReMoney($('#itemSum-' + item.id).html()));
                 itemSum += parseInt(item.price);
-                $('#itemSum-' + item.id).html(formatMoney(itemSum) + "VNĐ");
+                $('#itemSum-' + item.id).html(formatMoney(itemSum) + " VNĐ");
                 let sumMoney = parseInt(formatReMoney($('#sumMoney').html()));
                 sumMoney += parseInt(item.price);
                 $('#sumMoney').html(formatMoney(sumMoney) + " VNĐ");
@@ -212,7 +212,9 @@ formatMoney = (amount, decimalCount = 2, decimal = ".", thousands = ",") => {
 }
 
 formatReMoney = (amount) => {
-    return amount.replace(/[^0-9]/i, '');
+    let res = amount.replace(/[^0-9]/g, '');
+    res = res.substring(0, res.length - 2);
+    return res;
 }
 
 $(function () {

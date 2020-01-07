@@ -9,8 +9,13 @@
 
 <body class="bg-white">
     <% include ../../elements/header %>
+    
+    <header class="main_menu home_menu" id="main_menu">
+    <% include ../../elements/search%>
+    </header>
 
     <% include ../../elements/breadcrumb %>
+
 
     <!--================Category Product Area =================-->
     <section class="cat_product_area section_padding border_top">
@@ -19,77 +24,103 @@
                 <div class="col-lg-3">
                     <div class="left_sidebar_area">
                         <form method="GET">
-                        <aside class="left_widgets p_filter_widgets sidebar_box_shadow">
-                            <div class="l_w_title">
-                                <h3>Lọc sản phẩm</h3>
-                            </div>
-                            <div class="widgets_inner">
-                                <ul class="list">
-                                    <p>Nhóm</p>
-                                    <li>
-                                        <input name="group" id="allGroup" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'group', "")%>>
-                                        <label for="allGroup" >Tất cả</label>
-                                    </li>
-                                    <% group.forEach((group) => { %>
-                                    <li>
-                                        <input name="group" id="group_<%= group.id %>" value="<%= group.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'group', group.id)%>>
-                                        <label for="group_<%= group.id %>" ><%= group.name %></label>
-                                    </li>
-                                    <% }); %>
-                                </ul>
-                                <ul class="list">
-                                    <p>Loại</p>
-                                    <li>
-                                        <input name="type" id="allType" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'type', "")%>>
-                                        <label for="allType" >Tất cả</label>
-                                    </li>
-                                    <% type.forEach((type) => { %>
-                                    <li>
-                                        <input name="type" id="type_<%= type.id %>" value="<%= type.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'type', type.id)%>>
-                                        <label for="type_<%= type.id %>"><%= type.name %></label>
-                                    </li>
-                                    <% }); %>
-                                </ul>
-                                <ul class="list">
-                                    <p>Hãng sản xuất</p>
-                                    <li>
-                                        <input name="brand" id="allBrand" value="" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'brand', "")%>>
-                                        <label for="allBrand" >Tất cả</label>
-                                    </li>
-                                    <% brand.forEach((brand) => { %>
-                                    <li>
-                                        <input name="brand" id="brand_<%= brand.id %>" value="<%= brand.id %>" type="radio" aria-label="Radio button for following text input" <%=helper.getChecked(url, 'brand', brand.id)%>>
-                                        <label for="brand_<%= brand.id %>"><%= brand.name %></label>
-                                    </li>
-                                    <% }); %>
-                                </ul>
-                            </div>
-                        </aside>
-                        <aside class="section-top-border text-center" style="margin-top:-70px">
-                            <input type="submit" value="Lọc" class="genric-btn primary-border"></input>
-                        </aside>
-                    </form>
+                            <aside class="left_widgets p_filter_widgets sidebar_box_shadow">
+                                <div class="l_w_title">
+                                    <h3>Lọc sản phẩm</h3>
+                                </div>
+                                <div class="widgets_inner">
+                                    <ul class="list">
+                                        <p>Nhóm</p>
+                                        <li>
+                                            <input name="group" id="allGroup" value="" type="radio"
+                                                aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'group', "")%>>
+                                            <label for="allGroup">Tất cả</label>
+                                        </li>
+                                        <% group.forEach((group) => { %>
+                                        <li>
+                                            <input name="group" id="group_<%= group.id %>" value="<%= group.id %>"
+                                                type="radio" aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'group', group.id)%>>
+                                            <label for="group_<%= group.id %>"><%= group.name %></label>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                    <ul class="list">
+                                        <p>Loại</p>
+                                        <li>
+                                            <input name="type" id="allType" value="" type="radio"
+                                                aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'type', "")%>>
+                                            <label for="allType">Tất cả</label>
+                                        </li>
+                                        <% type.forEach((type) => { %>
+                                        <li>
+                                            <input name="type" id="type_<%= type.id %>" value="<%= type.id %>"
+                                                type="radio" aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'type', type.id)%>>
+                                            <label for="type_<%= type.id %>"><%= type.name %></label>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                    <ul class="list">
+                                        <p>Hãng sản xuất</p>
+                                        <li>
+                                            <input name="brand" id="allBrand" value="" type="radio"
+                                                aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'brand', "")%>>
+                                            <label for="allBrand">Tất cả</label>
+                                        </li>
+                                        <% brand.forEach((brand) => { %>
+                                        <li>
+                                            <input name="brand" id="brand_<%= brand.id %>" value="<%= brand.id %>"
+                                                type="radio" aria-label="Radio button for following text input"
+                                                <%=helper.getChecked(url, 'brand', brand.id)%>>
+                                            <label for="brand_<%= brand.id %>"><%= brand.name %></label>
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </aside>
+                            <aside class="section-top-border text-center" style="margin-top:-70px">
+                                <input type="submit" value="Lọc" class="genric-btn primary-border"></input>
+                            </aside>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
-                                <div class="single_product_menu product_bar_item">
+                                <div class="single_product_menu product_bar_item d-flex">
                                     <h2><%= range %></h2>
                                 </div>
                                 <div class="product_top_bar_iner product_bar_item d-flex">
-                                    <div class="product_bar_single">
-                                        <select id="select-order" class="wide" onChange="window.location.search=this.value">
+                                    <div class="hearer_icon d-flex align-items-center">
+                                        <label for="search_1" style="margin-top: 6;">Tìm kiếm</label>
+                                        <a id="search_1" href="javascript:void(0)"><i
+                                                class="product_bar_single ti-search text-dark"></i></a>
+                                    </div>
 
-                                            <option value="<%=helper.setTowParams(url,'order', 'ASC', 'orderBy', 'id', 1)%>" data-display="Sắp xếp">Sắp xếp</option>
-                                            <option value="<%=helper.setTowParams(url,'order', 'ASC', 'orderBy', 'price', 1)%>">Giá tăng dần</option>
-                                            <option value="<%=helper.setTowParams(url,'order', 'DESC', 'orderBy', 'price', 1)%>">Giá giảm dần</option>
+                                    <div class="product_bar_single">
+                                        <select id="select-order" class="wide"
+                                            onChange="window.location.search=this.value">
+
+                                            <option
+                                                value="<%=helper.setTowParams(url,'order', 'ASC', 'orderBy', 'id', 1)%>"
+                                                data-display="Sắp xếp">Sắp xếp</option>
+                                            <option
+                                                value="<%=helper.setTowParams(url,'order', 'ASC', 'orderBy', 'price', 1)%>">
+                                                Giá tăng dần</option>
+                                            <option
+                                                value="<%=helper.setTowParams(url,'order', 'DESC', 'orderBy', 'price', 1)%>">
+                                                Giá giảm dần</option>
                                         </select>
                                     </div>
                                     <div class="product_bar_single">
                                         <select id="select-per-page" onChange="window.location.search=this.value">
-                                            <option value="<%=helper.setParam(url, 'perPage', 6, 1)%>" data-display="Hiện 6">Hiện  6</option>
+                                            <option value="<%=helper.setParam(url, 'perPage', 6, 1)%>"
+                                                data-display="Hiện 6">Hiện 6</option>
                                             <option value="<%=helper.setParam(url, 'perPage', 12, 1)%>">Hiện 12</option>
                                             <option value="<%=helper.setParam(url, 'perPage', 24, 1)%>">Hiện 24</option>
                                         </select>
@@ -108,7 +139,8 @@
                                     <div class="category_social_icon">
                                         <ul>
                                             <!--<li><a href="/shop"><i class="ti-heart"></i></a></li>-->
-                                            <li><a value="<%= product.id %>" class="ti-bag" style="cursor:pointer" ></a></li>
+                                            <li><a value="<%= product.id %>" class="ti-bag" style="cursor:pointer"></a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="category_product_text">
@@ -137,7 +169,7 @@
     <% include ../../elements/footer %>
 
     <% include ../../elements/scripts %>
-    
+
 </body>
 
 </html>
