@@ -82,7 +82,8 @@ shopController.getOneProduct = (req, res, next) => {
                 {
                     title: 'Chi tiết',
                     breadcrumb: 'Trang chủ / Cửa hàng / ' + result.name,
-                    product: result
+                    product: result,
+                    helper: helper
                 });
         })
 }

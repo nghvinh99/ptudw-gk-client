@@ -29,7 +29,7 @@
         <div class="col-lg-5 offset-lg-1">
           <div class="s_product_text">
             <h3><%= product.name %></h3>
-            <h2><%= product.price %> VNĐ</h2>
+            <h2><%= helper.formatMoney(product.price) %> VNĐ</h2>
             <ul class="list">
               <li>
                 <a href="/shop/<%= product.id_sanpham %>"> <span>Tình trạng</span> : <%= product.quantity > 0 ? 'Còn Hàng' : 'Hết Hàng' %></a>

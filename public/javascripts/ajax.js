@@ -1,5 +1,5 @@
-$(function() { //update on cart item adding
-    $(".ti-bag").on('click', function() {
+$(function () { //update on cart item adding
+    $(".ti-bag").on('click', function () {
         const id = ($(this).attr('value'));
         $.ajax({
             url: '/shop/cart/add/' + id,
@@ -14,7 +14,7 @@ $(function() { //update on cart item adding
                 if (duplicate) {
                     if (duplicate.quantity < duplicate.stock) {
                         duplicate.quantity += 1;
-                        $('#itemCount-'+duplicate.id).html(duplicate.quantity);
+                        $('#itemCount-' + duplicate.id).html(duplicate.quantity);
                     } else alert('Đã đạt số lượng tối đa trong kho hàng: ' + duplicate.stock);
                 } else {
                     itemList.push({
@@ -26,9 +26,9 @@ $(function() { //update on cart item adding
                         quantity: 1
                     });
                     $('#cart').append('<a id="cart-item-' + data.id + '" style="color:inherit" href="/shop/' + data.id + '">' + data.name + ' &#xd7; \
-                    <em id="itemCount-'+ data.id + '">' + 1 +'</em><br></a>');
+                    <em id="itemCount-'+ data.id + '">' + 1 + '</em><br></a>');
                     $('#shopping-cart').attr("data-count", itemList.length);
-                    alert('Đã thêm sản phẩm '+ data.name +' vào giỏ hàng');
+                    alert('Đã thêm sản phẩm ' + data.name + ' vào giỏ hàng');
                 };
                 localStorage.setItem('cart', JSON.stringify(itemList));
             }
@@ -36,8 +36,8 @@ $(function() { //update on cart item adding
     })
 });
 
-$(function() { //update on cart item adding
-    $("#addCart").on('click', function() {
+$(function () { //update on cart item adding
+    $("#addCart").on('click', function () {
         const id = ($(this).attr('value'));
         const quantity = parseInt($("#quantity").val());
         $.ajax({
@@ -53,8 +53,8 @@ $(function() { //update on cart item adding
                 if (duplicate) {
                     if ((duplicate.quantity + quantity) <= duplicate.stock) {
                         duplicate.quantity += quantity;
-                        $('#itemCount-'+duplicate.id).html(duplicate.quantity);
-                        alert('Đã thêm '+ quantity + ' ' + duplicate.name +' vào giỏ hàng');
+                        $('#itemCount-' + duplicate.id).html(duplicate.quantity);
+                        alert('Đã thêm ' + quantity + ' ' + duplicate.name + ' vào giỏ hàng');
                     } else alert('Đã vượt quá số lượng tối đa trong kho hàng: ' + duplicate.stock);
                 } else {
                     if (quantity <= data.quantity) {
@@ -67,9 +67,9 @@ $(function() { //update on cart item adding
                             quantity: quantity
                         });
                         $('#cart').append('<a id="cart-item-' + data.id + '" style="color:inherit" href="/shop/' + data.id + '">' + data.name + ' &#xd7; \
-                        <em id="itemCount-'+ data.id + '">' + quantity +'</em><br></a>');
+                        <em id="itemCount-'+ data.id + '">' + quantity + '</em><br></a>');
                         $('#shopping-cart').attr("data-count", itemList.length);
-                        alert('Đã thêm sản phẩm '+ data.name +' vào giỏ hàng');
+                        alert('Đã thêm sản phẩm ' + data.name + ' vào giỏ hàng');
                     } else alert('Đã vượt quá số lượng tối đa trong kho hàng: ' + data.quantity);
                 };
                 localStorage.setItem('cart', JSON.stringify(itemList));
@@ -78,13 +78,13 @@ $(function() { //update on cart item adding
     })
 });
 
-$(function() { //show items in localStorage to cart when load pages
-    $("#main_menu").ready(function() {
+$(function () { //show items in localStorage to cart when load pages
+    $("#main_menu").ready(function () {
         const itemList = JSON.parse(localStorage.getItem('cart'));
         if (itemList) {
             itemList.forEach((item) => {
                 $('#cart').append('<a id="cart-item-' + item.id + '" style="color:inherit" href="/shop/' + item.id + '">' + item.name + ' &#xd7; \
-                <em id="itemCount-'+ item.id + '">' + item.quantity +'</em><br></a>');
+                <em id="itemCount-'+ item.id + '">' + item.quantity + '</em><br></a>');
             })
             $('#shopping-cart').attr("data-count", itemList.length);
         }
@@ -106,8 +106,8 @@ function removeItem(id) {
     }
 }
 
-$(function() {
-    $('.cart included').ready(function() {
+$(function () {
+    $('.cart included').ready(function () {
         const itemList = JSON.parse(localStorage.getItem('cart'));
         let sumMoney = 0;
         if (itemList) {
@@ -116,7 +116,7 @@ $(function() {
                 sumMoney += parseInt(itemSum);
                 $('#itemList').after(
                     "<tr id='cart-items-" + item.id + "'>\<td>\<div class='media'>\<div class='d-flex'>\
-                    <a href='/shop/"+ item.id +"'><img src='"+ item.image + "' alt='' />\</div>\
+                    <a href='/shop/"+ item.id + "'><img src='" + item.image + "' alt='' />\</div>\
                     <div class='media-body'>\<p>"+ item.name + "</p></a>\</div>\</div>\
                     </td>\<td>\<h5>"+ item.price + " VNĐ</h5>\</td>\<td>\<div class='product_count'>\
                     <span value='"+ item.id + "' class='input-number-decrement'> <i class='ti-minus'></i></span>\
@@ -131,9 +131,9 @@ $(function() {
     })
 });
 
-$(function() {
-    $(".input-number-decrement").ready(function() {
-        $(".input-number-decrement").on("click", function() {
+$(function () {
+    $(".input-number-decrement").ready(function () {
+        $(".input-number-decrement").on("click", function () {
             const id = $(this).attr("value");
             const itemList = JSON.parse(localStorage.getItem('cart'));
             const item = itemList.find(function (item) { return item.id == id });
@@ -147,15 +147,15 @@ $(function() {
                 let sumMoney = parseInt($('#sumMoney').html());
                 sumMoney -= parseInt(item.price);
                 $('#sumMoney').html(sumMoney + " VNĐ");
-                $('#itemCount-'+item.id).html(item.quantity);
+                $('#itemCount-' + item.id).html(item.quantity);
             } else alert('Số lượng đặt hàng tối thiểu là 1');
         })
     })
 });
 
-$(function() {
-    $(".input-number-increment").ready(function() {
-        $(".input-number-increment").on("click", function() {
+$(function () {
+    $(".input-number-increment").ready(function () {
+        $(".input-number-increment").on("click", function () {
             const id = $(this).attr("value");
             const itemList = JSON.parse(localStorage.getItem('cart'));
             const item = itemList.find(function (item) { return item.id == id });
@@ -163,39 +163,60 @@ $(function() {
                 item.quantity += 1;
                 $('#quantity-' + item.id).attr("value", item.quantity);
                 localStorage.setItem('cart', JSON.stringify(itemList));
-                let itemSum = parseInt($('#itemSum-' + item.id).html());
+                let itemSum = parseInt(formatReMoney($('#itemSum-' + item.id).html()));
                 itemSum += parseInt(item.price);
-                $('#itemSum-' + item.id).html(itemSum + "VNĐ");
-                let sumMoney = parseInt($('#sumMoney').html());
+                $('#itemSum-' + item.id).html(formatMoney(itemSum) + "VNĐ");
+                let sumMoney = parseInt(formatReMoney($('#sumMoney').html()));
                 sumMoney += parseInt(item.price);
-                $('#sumMoney').html(sumMoney + " VNĐ");
-                $('#itemCount-'+item.id).html(item.quantity);
+                $('#sumMoney').html(formatMoney(sumMoney) + " VNĐ");
+                $('#itemCount-' + item.id).html(item.quantity);
             } else alert('Số lượng đặt hàng đã vượt số lượng trong kho hàng: ' + item.stock);
         })
     })
 });
 
-$(function() {
-    $('.cart included').ready(function() {
+$(function () {
+    $('.cart included').ready(function () {
         const itemList = JSON.parse(localStorage.getItem('cart'));
         let sumMoney = 0;
         if (itemList) {
             itemList.forEach((item) => {
-                const itemSum = parseInt(item.price) * parseInt(item.quantity);
+                let itemSum = parseInt(item.price) * parseInt(item.quantity);
                 sumMoney += parseInt(itemSum);
                 $('#itemCheck').after(
                     "<li id='itemCheck'>\<a href='/shop/cart'>" + item.name + " &#xd7; " + item.quantity + "\
-                    <span class='last'>"+ itemSum + " VNĐ</span>\</a>\</li>"
+                    <span class='last'>"+ formatMoney(itemSum) + " VNĐ</span>\</a>\</li>"
                 );
-                $('#sumMoney').html(sumMoney + " VNĐ");
-                $('#sumMoneysi').html(sumMoney + " VNĐ");
+                $('#sumMoney').html(formatMoney(sumMoney) + " VNĐ");
+                $('#sumMoneysi').html(formatMoney(sumMoney) + " VNĐ");
             })
         }
     })
 });
 
-$(function() {
-    $('#checkout-req').on('click', function(err) {
+// Format int money to xxx,xxx.00
+formatMoney = (amount, decimalCount = 2, decimal = ".", thousands = ",") => {
+    try {
+        decimalCount = Math.abs(decimalCount);
+        decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+        const negativeSign = amount < 0 ? "-" : "";
+
+        let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+        let j = (i.length > 3) ? i.length % 3 : 0;
+
+        return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+formatReMoney = (amount) => {
+    return amount.replace(/[^0-9]/i, '');
+}
+
+$(function () {
+    $('#checkout-req').on('click', function (err) {
         const itemList = localStorage.getItem('cart');
         if (!itemList) {
             alert('Giỏ hàng của bạn đang trống');
@@ -206,7 +227,7 @@ $(function() {
 
 function postCart(itemList, done) {
     let COD = true;
-    if(!document.getElementById('f-option5').checked) {
+    if (!document.getElementById('f-option5').checked) {
         COD = false;
     }
     $.ajax({
@@ -221,16 +242,16 @@ function postCart(itemList, done) {
             note: $('#message').val(),
             payment: COD
         },
-        success: function() {
+        success: function () {
             localStorage.removeItem('cart');
-            window.location.href='/services/confirm';
+            window.location.href = '/services/confirm';
 
         },
     });
 }
 
-$(function() {
-    $('#checkout').on('click', function(err) {
+$(function () {
+    $('#checkout').on('click', function (err) {
         const itemList = localStorage.getItem('cart');
         if (itemList) {
             postCart(itemList);
